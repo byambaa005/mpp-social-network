@@ -88,7 +88,7 @@
 
 <!--Wall with Post -->
 <div class="content-posts active" id="posts">
-	<div id="posts-container" class="container-fluid container-posts">
+	<div id="posts-container" class="container-fluid container-posts" data-ng-init="getPosts()">
 
 		<!-- FORM TO CREATE TODOS -->
 		<div id="todo-form" class="row">
@@ -97,17 +97,17 @@
 					<div class="form-group">
 
 						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-						<textarea rows="4" class="form-control input-lg text-center" placeholder="What is on your mind?" ng-model="formData.description"></textarea>
+						<textarea rows="4" class="form-control input-lg text-center" placeholder="What is on your mind?" ng-model="formData.content"></textarea>
 					</div>
 
 					<!-- createToDo() WILL CREATE NEW TODOS -->
-					<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+					<button type="submit" class="btn btn-primary btn-lg" ng-click="addPost()">Add</button>
 				</form>
 			</div>
 		</div>
 
 
-		<div class="card-post">
+		<div class="card-post" ng-repeat="post in posts">
 			<div class="row">
 				<div class="col-xs-3 col-sm-2">
 					<a href="#" title="Profile">
@@ -121,7 +121,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-8 col-sm-offset-2 data-post">
-					<p>Lorem Ipsum Dolor si amet</p>
+					<p>{{post.content}}</p>
 					<div class="reaction">
 						<img draggable="false" class="emoji" alt="❤" src="../../../images/2764.png"> 156 <img draggable="false" class="emoji" alt="😃" src="../../../images/1f603.png"> 54
 					</div>
@@ -139,38 +139,38 @@
 			</div>
 		</div>
 
-		<div class="card-post">
-			<div class="row">
-				<div class="col-xs-3 col-sm-2">
-					<a href="#" title="User Profile">
-						<img src="../../../images/user2.jpg" alt="User name" class="img-circle img-user">
-					</a>
-				</div>
-				<div class="col-xs-9 col-sm-10 info-user">
-					<h3><a href="#" title="User Profile">User Name</a></h3>
-					<p><i>2h</i></p>
-				</div>
-			</div>
-			<div class="row">
-				<div class=" col-sm-8 col-sm-offset-2 data-post">
-					<p>Lorem Ipsum Dolor si amet</p>
-					<img src="../../../images/post.jpg" alt="image post" class="img-post">
-					<div class="reaction">
-						<img draggable="false" class="emoji" alt="❤" src="../../../images/2764.png"> 1234 <img draggable="false" class="emoji" alt="😃" src="../../../images/1f603.png"> 54
-					</div>
-					<div class="comments">
-						<div class="more-comments">View more comments</div>
-						<ul>
-							<li><b>User1</b> Lorem Ipsum Dolor si amet</li>
-							<li><b>User2</b> Lorem Ipsum Dolor si amet <img draggable="false" class="emoji" alt="😂" src="../../../images/1f602.png"></li>
-						</ul>
-						<form>
-							<input type="text" class="form-control" placeholder="Add a comment">
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
+		<!--<div class="card-post">-->
+			<!--<div class="row">-->
+				<!--<div class="col-xs-3 col-sm-2">-->
+					<!--<a href="#" title="User Profile">-->
+						<!--<img src="../../../images/user2.jpg" alt="User name" class="img-circle img-user">-->
+					<!--</a>-->
+				<!--</div>-->
+				<!--<div class="col-xs-9 col-sm-10 info-user">-->
+					<!--<h3><a href="#" title="User Profile">User Name</a></h3>-->
+					<!--<p><i>2h</i></p>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class="row">-->
+				<!--<div class=" col-sm-8 col-sm-offset-2 data-post">-->
+					<!--<p>Lorem Ipsum Dolor si amet</p>-->
+					<!--<img src="../../../images/post.jpg" alt="image post" class="img-post">-->
+					<!--<div class="reaction">-->
+						<!--<img draggable="false" class="emoji" alt="❤" src="../../../images/2764.png"> 1234 <img draggable="false" class="emoji" alt="😃" src="../../../images/1f603.png"> 54-->
+					<!--</div>-->
+					<!--<div class="comments">-->
+						<!--<div class="more-comments">View more comments</div>-->
+						<!--<ul>-->
+							<!--<li><b>User1</b> Lorem Ipsum Dolor si amet</li>-->
+							<!--<li><b>User2</b> Lorem Ipsum Dolor si amet <img draggable="false" class="emoji" alt="😂" src="../../../images/1f602.png"></li>-->
+						<!--</ul>-->
+						<!--<form>-->
+							<!--<input type="text" class="form-control" placeholder="Add a comment">-->
+						<!--</form>-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
 	<!--Close #posts-container-->
 	<div id="loading" style="display: none;">
 		<img src="./images/load.gif" alt="loader">
