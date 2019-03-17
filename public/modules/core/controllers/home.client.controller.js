@@ -8,8 +8,9 @@ angular.module('core').controller('HomeController', ['$scope', '$http',
 		// when landing on the page, get all posts and show them
 		$scope.getPosts = function() {
 			$http.get('/api/posts')
-				.then(function(data) {
-					$scope.posts = data;
+				.then(function(response) {
+					$scope.posts = response.data;
+					console.log($scope.posts);
 				})
 				.catch(function(data) {
 					console.log('Error: ' + data);
@@ -20,24 +21,24 @@ angular.module('core').controller('HomeController', ['$scope', '$http',
 		// when submitting the add form, send the text to the node API
 		$scope.addPost = function() {
 			$http.post('/api/posts', $scope.formData)
-				.then(function(data) {
+				.then(function(response) {
 					$scope.formData = {content: ''}; // clear the form so our user is ready to enter another
 					$scope.getPosts();
-					console.log(data);
+					console.log(response);
 				})
-				.catch(function(data) {
-					console.log('Error: ' + data);
+				.catch(function(error) {
+					console.log('Error: ' + error);
 				});
 		};
 
 		// delete a todo after checking it
 		$scope.deleteTodo = function(id) {
 			$http.delete('/api/posts/' + id)
-				.then(function(data) {
-					$scope.posts = data;
+				.then(function(response) {
+					$scope.posts = response;
 				})
-				.catch(function(data) {
-					console.log('Error: ' + data);
+				.catch(function(error) {
+					console.log('Error: ' + error);
 				});
 		};
 	}
