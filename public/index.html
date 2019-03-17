@@ -1,7 +1,7 @@
 <!doctype html>
 
 <!-- ASSIGN OUR ANGULAR MODULE -->
-<html ng-app="scotchTodo">
+<html ng-app="socialNetworkFp">
 <head>
 	<!-- META -->
 	<meta charset="utf-8">
@@ -10,59 +10,35 @@
 	<title>Node/Angular Message App</title>
 
 	<!-- SCROLLS -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+	<link rel="stylesheet" href="library/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="library/css/font-awesome.min.css">
+	<link rel="stylesheet" href="library/css/style.css">
+	<link rel="stylesheet" href="library/css/bootstrap-switch.min.css">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<style>
 		html 					{ overflow-y:scroll; }
 		body 					{ padding-top:50px; }
-		#todo-list 				{ margin-bottom:30px; }
-		#todo-form 	 			{ margin-bottom:50px; }
 	</style>
 
 	<!-- SPELLS -->
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
-	<script src="core.js"></script>
+	<script src="library/jquery/dist/jquery.js"></script>
+	<script src="library/angular/angular.js"></script>
+	<script src="library/angular-animate/angular-animate.js"></script>
+	<script src="library/angular-resource/angular-resource.js"></script>
+	<script src="library/angular-route/angular-route.js"></script>
+	<script src="library/@uirouter/angularjs/release/angular-ui-router.js"></script>
+	<script src="app.module.js"></script>
+	<script src="modules/core/core.module.js"></script>
+	<script src="modules/core/config/core.client.routes.js"></script>
+	<script src="modules/core/controllers/home.client.controller.js"></script>
 
 </head>
-<!-- SET THE CONTROLLER AND GET ALL TODOS WITH INITIALIZE FUNCTION -->
-<body ng-controller="mainController">
-	<div class="container" data-ng-init="getPosts()">
+<body>
 
-		<!-- HEADER AND TODO COUNT -->
-		<div class="jumbotron text-center">
-			<h2>The Wall <span class="label label-info">{{ todos.length }}</span></h2>
-		</div>
-
-		<!-- TODO LIST -->
-		<div id="todo-list" class="row">
-			<div class="col-sm-4 col-sm-offset-4">
-
-				<!-- LOOP OVER THE TODOS IN $scope.todos -->
-				<div class="checkbox" ng-repeat="todo in todos">
-					<label>
-						<input type="checkbox" ng-click="deleteTodo(todo.id)"> {{ todo.description }}
-					</label>
-				</div>
-
-			</div>
-		</div>
-
-		<!-- FORM TO CREATE TODOS -->
-		<div id="todo-form" class="row">
-			<div class="col-sm-8 col-sm-offset-2 text-center">
-				<form>
-					<div class="form-group">
-
-						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-						<textarea type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.description"></textarea>
-					</div>
-
-					<!-- createToDo() WILL CREATE NEW TODOS -->
-					<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
-				</form>
-			</div>
-		</div>
-
-	</div>
+<div class="view-container">
+	<div data-ui-view></div>
+</div>
 
 </body>
 </html>
