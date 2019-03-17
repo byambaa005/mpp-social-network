@@ -17,8 +17,6 @@ let dummyData = JSON.parse(rawData);
 const posts = dummyData['posts'];
 const users = dummyData['users'];
 
-let curDate = new Date();
-
 module.exports = function (app) {
 
 // use bodyParser to parse application/json content-type
@@ -45,6 +43,7 @@ module.exports = function (app) {
 
 // insert a new question
     app.post('/api/posts', (req, res) => {
+        let curDate = new Date();
         const {content} = req.body;
         const newPost = {
             id: posts.length + 1,
