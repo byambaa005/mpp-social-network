@@ -19,21 +19,28 @@
       "lastname": "Bold"
     }
   ],
-  "user_followers": [
+  "user_relations": [
     {
       "id": 1,
       "user_id": 1,
-      "follower_id": 2
+      "related_user_id": 2,
+      "relation_type": 1
+    },
+    {
+      "id": 1,
+      "user_id": 1,
+      "related_user_id": 3,
+      "relation_type": 2
+    }
+  ],
+  "relation_types": [
+    {
+    "id": 1,
+    "type": "friends"
     },
     {
       "id": 2,
-      "user_id": 1,
-      "follower_id": 3
-    },
-    {
-      "id": 3,
-      "user_id": 3,
-      "follower_id": 2
+      "type": "follower"
     }
   ],
   "posts": [

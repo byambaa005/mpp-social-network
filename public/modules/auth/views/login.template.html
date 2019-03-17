@@ -1,0 +1,36 @@
+<div ng-show="error" class="alert alert-danger">{{error}}</div>
+
+
+<div class="center">
+    <div class="card">
+        <h1>Login</h1>
+        <form name="form" ng-submit="login()" role="form">
+            <input
+                    class="form-item"
+                    placeholder="Username goes here..."
+                    id="username"
+                    name="username"
+                    type="text"
+                    ng-model="username"
+                    required
+            />
+            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+            <input
+                    class="form-item"
+                    placeholder="Password goes here..."
+                    name="password"
+                    type="password"
+                    id="password"
+                    ng-model="password"
+                    required
+            />
+            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+            <input
+                    ng-disabled="form.$invalid || dataLoading"
+                    class="form-submit"
+                    value="Login"
+                    type="submit"
+            />
+        </form>
+    </div>
+</div>
