@@ -2,12 +2,22 @@
 // const express = require('express');
 const bodyParser = require('body-parser');
 const R = require('ramda');
+const fs = require('fs');
+
 
 // define the Express app
 // const app = express();
 
+
 // the database
-const questions = [];
+
+let rawData = fs.readFileSync('./dist/data.json');
+let dummyData = JSON.parse(rawData);
+
+const posts = dummyData['posts'];
+const users = dummyData['users'];
+
+let curDate = new Date();
 
 module.exports = function (app) {
 
@@ -15,34 +25,34 @@ module.exports = function (app) {
     app.use(bodyParser.json());
 
 // retrieve all questions
-    app.get('/api/questions', (req, res) => {
-        const qs = questions.map(q => ({
+    app.get('/api/posts', (req, res) => {
+        const qs = posts.map(q => ({
             id: q.id,
-            title: q.title,
-            description: q.description,
-            answers: q.answers.length,
+            content: q.content,
+            created_date: q.created_date,
+            user_id: q.user_id
         }));
         res.send(qs);
     });
 
 // get a specific question
-    app.get('/api/:id', (req, res) => {
-        const question = questions.filter(q => (q.id === parseInt(req.params.id)));
-        if (question.length > 1) return res.status(500).send();
-        if (question.length === 0) return res.status(404).send();
-        res.send(question[0]);
+    app.get('/api/post/:id', (req, res) => {
+        const post = posts.filter(q => (q.id === parseInt(req.params.id)));
+        if (post.length > 1) return res.status(500).send();
+        if (post.length === 0) return res.status(404).send();
+        res.send(post[0]);
     });
 
 // insert a new question
-    app.post('/api/questions', (req, res) => {
-        const {title, description} = req.body;
-        const newQuestion = {
-            id: questions.length + 1,
-            title,
-            description,
-            answers: []
+    app.post('/api/posts', (req, res) => {
+        const {content} = req.body;
+        const newPost = {
+            id: posts.length + 1,
+            content,
+            created_date: curDate.toJSON(),
+            user_id: 1
         };
-        questions.push(newQuestion);
+        posts.push(newPost);
         res.status(200).send();
     });
 
@@ -50,19 +60,11 @@ module.exports = function (app) {
     app.post('/api/answer/:id', (req, res) => {
         const {answer} = req.body;
 
-        const question = questions.filter(q => (q.id === parseInt(req.params.id)));
-        if (question.length > 1) return res.status(500).send();
-        if (question.length === 0) return res.status(404).send();
-
-        question[0].answers.push({
-            answer
-        });
+        const post = posts.filter(q => (q.id === parseInt(req.params.id)));
+        if (post.length > 1) return res.status(500).send();
+        if (post.length === 0) return res.status(404).send();
 
         res.status(200).send();
-    });
-
-    app.delete('/api/questions/:id', (req, res) => {
-
     });
 
 };
