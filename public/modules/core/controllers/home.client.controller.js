@@ -1,43 +1,42 @@
 'use strict';
 
-
 angular.module('core').controller('HomeController', ['$scope', '$http',
 	function($scope, $http) {
 		// This provides Authentication context.
-		$scope.formData = {title: 'test', description: ''};
+		$scope.formData = {content: ''};
 
-		// when landing on the page, get all todos and show them
+		// when landing on the page, get all posts and show them
 		$scope.getPosts = function() {
-			$http.get('/api/questions')
-				.success(function(data) {
-					$scope.todos = data;
+			$http.get('/api/posts')
+				.then(function(data) {
+					$scope.posts = data;
 				})
-				.error(function(data) {
+				.catch(function(data) {
 					console.log('Error: ' + data);
 				});
 		};
 
 
 		// when submitting the add form, send the text to the node API
-		$scope.createTodo = function() {
-			$http.post('/api/questions', $scope.formData)
-				.success(function(data) {
-					$scope.formData = {title: 'test', description: ''}; // clear the form so our user is ready to enter another
+		$scope.addPost = function() {
+			$http.post('/api/posts', $scope.formData)
+				.then(function(data) {
+					$scope.formData = {content: ''}; // clear the form so our user is ready to enter another
 					$scope.getPosts();
 					console.log(data);
 				})
-				.error(function(data) {
+				.catch(function(data) {
 					console.log('Error: ' + data);
 				});
 		};
 
 		// delete a todo after checking it
 		$scope.deleteTodo = function(id) {
-			$http.delete('/api/todos/' + id)
-				.success(function(data) {
-					$scope.todos = data;
+			$http.delete('/api/posts/' + id)
+				.then(function(data) {
+					$scope.posts = data;
 				})
-				.error(function(data) {
+				.catch(function(data) {
 					console.log('Error: ' + data);
 				});
 		};
