@@ -1,0 +1,118 @@
+{
+  "data" : {
+    "users": [
+      {
+        "id": 1,
+        "username": "Byambaa",
+        "firstname": "Byambadorj",
+        "lastname": "Dulamsuren"
+      },
+      {
+        "id": 2,
+        "username": "Puujee",
+        "firstname": "Purevdemberel",
+        "lastname": "Byambatogtokh"
+      },
+      {
+        "id": 3,
+        "username": "Anhaa",
+        "firstname": "Anherdene",
+        "lastname": "Bold"
+      }
+    ],
+    "user_followers": [
+      {
+        "id": 1,
+        "user_id": 1,
+        "follower_id": 2
+      },
+      {
+        "id": 2,
+        "user_id": 1,
+        "follower_id": 3
+      },
+      {
+        "id": 3,
+        "user_id": 3,
+        "follower_id": 2
+      }
+    ],
+    "posts": [
+      {
+        "id": 1,
+        "content": "In computer science, functional programming is a programming paradigm—a style of building the structure and elements of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data.",
+        "created_date": "2019-03-14T18:25:43.511Z",
+        "owner_id": 1
+      },
+      {
+        "id": 2,
+        "content": "Programming in a functional style can also be accomplished in languages that are not specifically designed for functional programming. For example, the imperative Perl programming language has been the subject of a book describing how to apply functional programming concepts.",
+        "created_date": "2019-03-15T18:25:43.511Z",
+        "owner_id": 2
+      },
+      {
+        "id": 3,
+        "content": "Lambda calculus provides a theoretical framework for describing functions and their evaluation. It is a mathematical abstraction rather than a programming language—but it forms the basis of almost all current functional programming languages.",
+        "created_date": "2019-03-16T18:25:43.511Z",
+        "owner_id": 1
+      },
+      {
+        "id": 4,
+        "content": "Functional programming continues to be used in commercial settings.",
+        "created_date": "2019-03-17T18:25:43.511Z",
+        "owner_id": 1
+      }
+    ],
+    "post_comments": [
+      {
+        "id": 1,
+        "post_id": 1,
+        "comment": "That is very insightful!",
+        "created_date": "2019-03-14T19:25:43.511Z"
+      },
+      {
+        "id": 2,
+        "post_id": 1,
+        "comment": "Thanks.",
+        "created_date": "2019-03-14T19:35:43.511Z"
+      }
+    ],
+    "post_reactions": [
+      {
+        "id": 1,
+        "post_id": 1,
+        "reaction_type": 1,
+        "user_id": 2,
+        "created_date": "2019-03-14T19:25:43.511Z"
+      },
+      {
+        "id": 2,
+        "post_id": 1,
+        "reaction_type": 1,
+        "user_id": 3,
+        "created_date": "2019-03-14T19:25:43.511Z"
+      },
+      {
+        "id": 3,
+        "post_id": 2,
+        "reaction_type": 1,
+        "user_id": 2,
+        "created_date": "2019-03-14T19:25:43.511Z"
+      }
+    ],
+    "reaction_type": [
+      {
+        "id": 1,
+        "type": 1,
+        "reaction_name": "like",
+        "reaction_icon": "fas fa-thumbs-up"
+      },
+      {
+        "id": 2,
+        "type": 2,
+        "reaction_name": "dislike",
+        "reaction_icon": "fas fa-thumbs-down"
+      }
+    ]
+  }
+}

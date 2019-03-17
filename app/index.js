@@ -2,12 +2,24 @@
 // const express = require('express');
 const bodyParser = require('body-parser');
 const R = require('ramda');
+const fs = require('fs');
+
 
 // define the Express app
 // const app = express();
 
 // the database
 const questions = [];
+const posts = [];
+const users = [];
+
+fs.readFile('./dist/data.json', 'utf8', function(err, data) {
+    if (err) throw err;
+
+    // console.log(data);
+});
+
+let curDate = new Date();
 
 module.exports = function (app) {
 
@@ -18,9 +30,9 @@ module.exports = function (app) {
     app.get('/api/questions', (req, res) => {
         const qs = questions.map(q => ({
             id: q.id,
-            title: q.title,
-            description: q.description,
-            answers: q.answers.length,
+            content: q.content,
+            created_date: q.created_date,
+            user_id: q.user_id
         }));
         res.send(qs);
     });
@@ -35,12 +47,12 @@ module.exports = function (app) {
 
 // insert a new question
     app.post('/api/questions', (req, res) => {
-        const {title, description} = req.body;
+        const {content} = req.body;
         const newQuestion = {
             id: questions.length + 1,
-            title,
-            description,
-            answers: []
+            content,
+            created_date: curDate.toJSON(),
+            user_id: 1
         };
         questions.push(newQuestion);
         res.status(200).send();
