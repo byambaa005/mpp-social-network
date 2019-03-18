@@ -17,17 +17,10 @@ const filterUserId =(id,data) => R.filter(eqByUserId(id),data);
  * List of Posts
  */
 exports.list = function(req, res) {
-    console.log(req.params.userId);
-    console.log(posts);
-    const qs = filterUserId(req.params.userId ,posts);
-    console.log(qs);
-    // const qs = posts.map(q => ({
-    //     id: q.id,
-    //     content: q.content,
-    //     created_date: q.created_date,
-    //     user_id: q.user_id
-    // }));
+
+    const qs = filterUserId(parseInt(req.params.userId) ,posts);
     res.send(qs);
+
 };
 
 /**
