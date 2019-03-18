@@ -80,7 +80,7 @@ let users = require('./controllers/users.server.js'),
 
 module.exports = function (app) {
 
-    app.route('/api/posts')
+    app.route('/api/posts/:userId')
         .get(posts.list);
 
     app.route('/api/comments/:postId')

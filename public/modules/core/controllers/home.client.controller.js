@@ -10,7 +10,7 @@ angular.module('core').controller('HomeController', ['$scope', '$http', '$cookie
 
 		// when landing on the page, get all posts and show them
 		$scope.getPosts = function() {
-			$http.get('/api/posts')
+			$http.get('/api/posts/' + $scope.curUser.id)
 				.then(function(response) {
 					$scope.posts = response.data;
 				})

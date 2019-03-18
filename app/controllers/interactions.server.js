@@ -6,7 +6,7 @@ let dummyData = JSON.parse(rawData);
 
 const comments = dummyData['post_comments'];
 
-const isFilter = n=>n
+const isFilter = n=>n;
 // func user_id
 const eqByUserId = (id)=>  R.propEq('user_id', id);
 
@@ -14,9 +14,9 @@ const eqByUserId = (id)=>  R.propEq('user_id', id);
 const eqByPostId = (id)=>  R.propEq('post_id', id);
 
 // func user_id
-const filterByPostId =(id,data) => R.filter(eqByUserId(id),data)
+const filterByUserId =(id,data) => R.filter(eqByUserId(id),data);
 
-const filterByPostId =(id,data) => R.filter(eqByPostId(id),data)
+const filterByPostId =(id,data) => R.filter(eqByPostId(id),data);
 
 /**
  * List of Post comments by post Id

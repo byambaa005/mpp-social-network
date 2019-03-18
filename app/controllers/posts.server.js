@@ -12,14 +12,14 @@ const eqByUserId = (id)=>  R.propEq('user_id', id);
 
 //
 
-const filterUserId =(id,data) => R.filter(eqByUserId(id),data)
+const filterUserId =(id,data) => R.filter(eqByUserId(id),data);
 
 /**
  * List of Posts
  */
 exports.list = function(req, res) {
-
-    const qs = filterUserId(req.userId,posts);
+    console.log(req.params);
+    const qs = filterUserId(req.params.userId,posts);
     // const qs = posts.map(q => ({
     //     id: q.id,
     //     content: q.content,

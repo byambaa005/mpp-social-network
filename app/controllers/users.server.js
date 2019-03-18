@@ -23,6 +23,7 @@ exports.auth = function(req, res) {
         let password = Buffer.from(req.body.password).toString('ascii');
         if (password === req.body.password) {
             return res.status(200).send({
+                id: curUser.id,
                 message: 'User is logged in.'
             })
         } else {
@@ -30,5 +31,9 @@ exports.auth = function(req, res) {
                 message: 'Username or password incorrect!'
             });
         }
+    } else {
+        return res.status(400).send({
+            message: 'User not found!'
+        });
     }
 };

@@ -11,9 +11,11 @@ angular.module('auth')
                 $scope.login = function () {
                     $scope.dataLoading = true;
                     AuthenticationService.Login($scope.username, $scope.password, function(response) {
-                        console.log(response);
+
+                        let userData = response.data;
+
                         if(response.status ===  200) {
-                            AuthenticationService.SetCredentials($scope.username, $scope.password);
+                            AuthenticationService.SetCredentials(userData.id ,$scope.username, $scope.password);
                             $location.path('/');
                         } else {
                             $scope.error = response.message;
