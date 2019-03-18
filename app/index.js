@@ -110,6 +110,9 @@ module.exports = function (app) {
     app.route('/api/posts')
         .get(posts.list);
 
+    app.route('/api/posts')
+        .post(posts.create);
+
     app.route('/api/authenticate')
         .post(users.auth);
 

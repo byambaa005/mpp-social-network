@@ -18,3 +18,19 @@ exports.list = function(req, res) {
     }));
     res.send(qs);
 };
+
+/**
+ * Insert new post
+ */
+exports.create = function (req, res) {
+        let curDate = new Date();
+        const {content} = req.body;
+        const newPost = {
+            id: posts.length + 1,
+            content,
+            created_date: curDate.toJSON(),
+            user_id: 1
+        };
+        posts.push(newPost);
+        res.status(200).send();
+};
