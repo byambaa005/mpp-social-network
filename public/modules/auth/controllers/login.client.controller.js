@@ -6,12 +6,13 @@ angular.module('auth')
         ['$scope', '$rootScope', '$location', 'AuthenticationService',
             function ($scope, $rootScope, $location, AuthenticationService) {
                 // reset login status
-                AuthenticationService.ClearCredentials();
+                // AuthenticationService.ClearCredentials();
 
                 $scope.login = function () {
                     $scope.dataLoading = true;
                     AuthenticationService.Login($scope.username, $scope.password, function(response) {
-                        if(response.success) {
+                        console.log(response);
+                        if(response.status ===  200) {
                             AuthenticationService.SetCredentials($scope.username, $scope.password);
                             $location.path('/');
                         } else {

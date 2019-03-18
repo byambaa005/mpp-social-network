@@ -3,29 +3,33 @@
 angular.module('auth')
 
     .factory('AuthenticationService',
-        ['Base64', '$http', '$cookies', '$rootScope', '$timeout',
-            function (Base64, $http, $cookies, $rootScope, $timeout) {
+        ['Base64', '$http', '$cookies', '$rootScope', '$timeout', '$window',
+            function (Base64, $http, $cookies, $rootScope, $timeout, $window) {
                 let service = {};
 
                 service.Login = function (username, password, callback) {
 
                     /* Dummy authentication for testing, uses $timeout to simulate api call
                      ----------------------------------------------*/
-                    $timeout(function(){
-                        let response = { success: username === 'test' && password === 'test' };
-                        if(!response.success) {
-                            response.message = 'Username or password is incorrect';
-                        }
-                        callback(response);
-                    }, 1000);
+                    // $timeout(function(){
+                    //     let response = { success: username === 'test' && password === 'test' };
+                    //     if(!response.success) {
+                    //         response.message = 'Username or password is incorrect';
+                    //     }
+                    //     callback(response);
+                    // }, 1000);
 
 
                     /* Use this for real authentication
                      ----------------------------------------------*/
-                    //$http.post('/api/authenticate', { username: username, password: password })
-                    //    .success(function (response) {
-                    //        callback(response);
-                    //    });
+                    $http.post('/api/authenticate', { username: username, password: password })
+                       .then(function (response) {
+                           console.log(response);
+                           callback(response);
+                       })
+                        .catch(function(error) {
+                            alert(error.message);
+                        });
 
                 };
 
@@ -38,14 +42,15 @@ angular.module('auth')
                             authdata: authdata
                         }
                     };
-
+                    $window.localStorage.setItem('user', JSON.stringify($rootScope.globals));
                     $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
-                    $cookies.put('globals', $rootScope.globals);
+                    // $cookies.put('globals', $rootScope.globals);
                 };
 
                 service.ClearCredentials = function () {
                     $rootScope.globals = {};
-                    $cookies.remove('globals');
+                    // $cookies.remove('globals');
+                    $window.localStorage.removeItem('user');
                     $http.defaults.headers.common.Authorization = 'Basic ';
                 };
 
