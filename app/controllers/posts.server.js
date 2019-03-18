@@ -11,15 +11,16 @@ const posts = dummyData['posts'];
 const eqByUserId = (id)=>  R.propEq('user_id', id);
 
 //
-
 const filterUserId =(id,data) => R.filter(eqByUserId(id),data);
 
 /**
  * List of Posts
  */
 exports.list = function(req, res) {
-    console.log(req.params);
-    const qs = filterUserId(req.params.userId,posts);
+    console.log(req.params.userId);
+    console.log(posts);
+    const qs = filterUserId(req.params.userId ,posts);
+    console.log(qs);
     // const qs = posts.map(q => ({
     //     id: q.id,
     //     content: q.content,

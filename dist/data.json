@@ -69,7 +69,19 @@
       "id": 4,
       "content": "Functional programming continues to be used in commercial settings.",
       "created_date": "2019-03-16T18:55:43.511Z",
-      "user_id": 1
+      "user_id": 3
+    },
+    {
+      "id": 5,
+      "content": "Functional programming continues to be used in commercial settings.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 3
+    },
+    {
+      "id": 6,
+      "content": "Functional programming continues to be used in commercial settings.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 3
     }
   ],
   "post_comments": [
