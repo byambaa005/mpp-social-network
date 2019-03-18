@@ -6,6 +6,8 @@ let dummyData = JSON.parse(rawData);
 
 const comments = dummyData['post_comments'];
 
+const isFilter = n=>n
+
 /**
  * List of Post comments by post Id
  */
