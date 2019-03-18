@@ -8,11 +8,11 @@ let dummyData = JSON.parse(rawData);
 const posts = dummyData['posts'];
 
 // func user_id
-const getUserPost = (id)=>  R.propEq('user_id', id);
+const eqByUserId = (id)=>  R.propEq('user_id', id);
 
 //
 
-const filterUserId =(id,data) => R.filter(getUserPost(id),data)
+const filterUserId =(id,data) => R.filter(eqByUserId(id),data)
 
 /**
  * List of Posts
