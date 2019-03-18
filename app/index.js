@@ -73,33 +73,6 @@ let users = require('./controllers/users.server.js'),
 // //         res.status(200).send();
 // //     });
 // //
-// //     app.post('/api/authenticate', (req, res) => {
-// //
-// //         if (!req.body.username || !req.body.password) {
-// //             return res.status(400).send({
-// //                 message: "Username or password empty!"
-// //             })
-// //         }
-// //
-// //         //finding user by username
-// //         let curUser = R.find(R.propEq('username', req.body.username))(users);
-// //
-// //         if (curUser) {
-// //             let password = Buffer.from(req.body.password).toString('ascii');
-// //             if (password === req.body.password) {
-// //                 return res.status(200).send({
-// //                     message: 'User is logged in.'
-// //                 })
-// //             } else {
-// //                 return res.status(400).send({
-// //                     message: 'Username or password incorrect!'
-// //                 });
-// //             }
-// //         }
-// //
-// //     });
-// //
-// //
 // //     app.route('/api/posts')
 // //         .get(posts.list);
 // //
@@ -109,6 +82,9 @@ module.exports = function (app) {
 
     app.route('/api/posts')
         .get(posts.list);
+
+    app.route('/api/comments/:postId')
+        .get(interactions.comments);
 
     app.route('/api/posts')
         .post(posts.create);
