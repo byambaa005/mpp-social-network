@@ -1,9 +1,8 @@
 'use strict';
 
-angular.module('core').controller('HomeController', ['$scope', '$http', '$cookies',
-	function($scope, $http, $cookies) {
+angular.module('core').controller('HomeController', ['$scope', '$http', '$cookies', '$window',
+	function($scope, $http, $cookies, $window) {
 		// This provides Authentication context.
-		console.log($cookies.get('global'));
 		$scope.formData = {content: ''};
 
 		// when landing on the page, get all posts and show them
@@ -11,7 +10,6 @@ angular.module('core').controller('HomeController', ['$scope', '$http', '$cookie
 			$http.get('/api/posts')
 				.then(function(response) {
 					$scope.posts = response.data;
-					console.log($scope.posts);
 				})
 				.catch(function(data) {
 					console.log('Error: ' + data);

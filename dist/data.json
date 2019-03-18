@@ -4,19 +4,22 @@
       "id": 1,
       "username": "Byambaa",
       "firstname": "Byambadorj",
-      "lastname": "Dulamsuren"
+      "lastname": "Dulamsuren",
+      "password": "dGVzdA=="
     },
     {
       "id": 2,
       "username": "Puujee",
       "firstname": "Purevdemberel",
-      "lastname": "Byambatogtokh"
+      "lastname": "Byambatogtokh",
+      "password": "dGVzdA=="
     },
     {
       "id": 3,
       "username": "Anhaa",
       "firstname": "Anherdene",
-      "lastname": "Bold"
+      "lastname": "Bold",
+      "password": "dGVzdA=="
     }
   ],
   "user_relations": [
