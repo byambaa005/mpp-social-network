@@ -30,6 +30,6 @@ exports.comments = function(req, res) {
     //     user_id: c.user_id,
     //     post_id: c.post_id
     // }));
-    const cs = filterByPostId(req.post_id,comments );
+    const cs = filterByPostId(parseInt(req.post_id),comments );
     res.send(cs);
 };
