@@ -15,8 +15,10 @@
     "bootstrap": "3.3.x",
     "cpx": "^1.5.0",
     "express": "~4.7.2",
+    "g": "^2.0.1",
     "jquery": "3.3.x",
     "method-override": "^3.0.0",
+    "mocha": "^6.0.2",
     "mongoose": "~3.6.2",
     "morgan": "~1.2.2",
     "ramda": "^0.26.1"
@@ -25,5 +27,8 @@
     "postinstall": "npm run copy-libs",
     "postupdate-deps": "npm run copy-libs",
     "copy-libs": "cpx \"node_modules/{angular,angular-*,@uirouter,bootstrap/dist,jquery/dist}/**/*\" public/library -C"
+  },
+  "devDependencies": {
+    "nyc": "^13.3.0"
   }
 }
