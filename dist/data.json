@@ -239,7 +239,7 @@
     },
     {
       "id": 10,
-      "content": "Meanwhile, the development of Scheme, a simple lexically scoped and (impurely) functional dialect of Lisp, as described in the influential Lambda Papers and the classic 1985 textbook Structure and Interpretation of Computer Programs, brought awareness of the power of functional programming to the wider programming-languages community.",
+      "content": "Meanwhile, the development of Scheme, a simple lexically scoped and (impurely) functional dialect of Lisp, as described in the influential Lambda Papers and the classic 1985 textbook Structure and Interpretation of Computer Programs, brought awareness of the power of functional programming to the wider programming-languages community..",
       "created_date": "2019-03-16T18:55:43.511Z",
       "user_id": 3
     }
