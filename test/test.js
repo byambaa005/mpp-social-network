@@ -14,11 +14,11 @@ it('create post', function() {
 
 
 it('create comment', function() {
-    expect(interactoins._createComment("test",1)).to.include.deep.members([{
+    expect(interactoins._createComment(1,[{id:1, post_id:1}])).to.have.deep.members([{
         "id": 1,
         "post_id": 1,
         "user_id": 1,
-        "comment": "That is very insightfull!",
+        "comment": "That is very insightful!",
         "created_date": "2019-03-14T19:25:43.511Z"
     }]);
 });

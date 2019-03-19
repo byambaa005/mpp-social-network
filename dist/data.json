@@ -258,6 +258,12 @@
       "content": "Lambda calculus provides a theoretical framework for describing functions and their evaluation. It is a mathematical abstraction rather than a programming language—but it forms the basis of almost all current functional programming languages.",
       "created_date": "2019-03-16T18:25:43.511Z",
       "user_id": 2
+    },
+    {
+      "id": 4,
+      "content": "Purely functional programming consists in ensuring that functions, inside the functional paradigm, will only depend on their arguments, regardless of any global or local state.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 2
     }
   ],
   "post_comments": [
