@@ -22,7 +22,15 @@ it('create comment', function() {
         "created_date": "2019-03-14T19:25:43.511Z"
     }]);
 });
-
+it('create like', function() {
+    expect(interactoins._createReaction(1,1,1)).to.include.deep.members([{
+        "id": 1,
+        "post_id": 1,
+        "reaction_type": 1,
+        "user_id": 2,
+        "created_date": "2019-03-14T19:25:43.511Z"
+    }]);
+});
 it('get posts', function() {
     expect(posts._listPost(1)).to.include.deep.members([{
         "id": 1,
