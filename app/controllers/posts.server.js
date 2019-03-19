@@ -64,7 +64,7 @@ exports.listFriendPost = function(req, res) {
 };
 
 exports._listFriendPost = function (userId) {
-    let relationFs = usersServer._listFriends(userId);
+    let relationFs = usersServer._listFollowing(userId);
     let relationFollowers = usersServer._listFollowers(userId);
     let allRelatedUsers = R.union(relationFs,relationFollowers);
     let userFros = [];
@@ -74,4 +74,9 @@ exports._listFriendPost = function (userId) {
     return R.flatten(userFros);
 };
 
+
+// exports._searcbPost = function (saerch) {
+//
+//     return R.flatten(userFros);
+// };
 

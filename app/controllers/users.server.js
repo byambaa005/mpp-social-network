@@ -50,7 +50,8 @@ const findByUserEmail = (email,data)=> R.find(eqByUserEmail(email),data);
 const addToUsers = (user ,users) =>R.append(user ,users);
 // password encryption function
 const encPass = (password) =>Buffer.from(password).toString('ascii');
-
+// find by username
+const searchByUser = (user,name)=> R.find(eqByUserEmail(email),data);
 /**
  * Login user
  */
@@ -129,7 +130,7 @@ exports._signup = function(userRaw) {
  * Sign up new user
  */
 exports.listFriends = function(req, res) {
-    let relationfs =exports._listFriends(parseInt(req.param.userId));
+    let relationfs =exports._listFollowing(parseInt(req.param.userId));
     let userFros = [];
     for (let i = 0; i < relationfs.length-1; i++) {
         userFros.push(findByUserId(relationfs[i],users));
@@ -150,10 +151,23 @@ exports.listFollowers = function(req, res) {
     res.send(userFros)
 
 };
+
 /**
  * Sign up new user
  */
-exports._listFriends = function(userId) {
+exports.nonFollowers = function(req, res) {
+    let relationfs =exports.nonFollowers(parseInt(req.param.userId));
+    let userFros = [];
+    for (let i = 0; i < relationfs.length-1; i++) {
+        userFros.push(findByUserId(relationfs[i],users));
+    }
+    res.send(userFros)
+
+};
+/**
+ * Sign up new user
+ */
+exports._listFollowing = function(userId) {
     let relations =R.union(R.map((o) => o.related_user_id,filterFriendUserId(filterUserId(userId,userRelations))),R.map((o) => o.user_id,filterFriendUserId(filterRalationUserId(userId,userRelations))));
     return relations;
 
@@ -166,3 +180,27 @@ exports._listFollowers = function(userId) {
     return relations;
 
 };
+
+/**
+ * Sign up new user
+ */
+exports._nonFollowers = function(userId) {
+    let allRelatedUsers = R.union(exports._listFollowing(userId),exports._listFollowers(userId));
+    allRelatedUsers.push(parseInt(userId))
+    let usersId =R.map((o) => o.id,users);
+    return R.without(allRelatedUsers, usersId);;
+};
+
+
+// /**
+//  * Sign up new user
+//  */
+// exports._searchUser = function(searchText) {
+//
+//     const searchUsername = (searchText)=> R.propEq('username', username)
+//
+//     let userId = R.forEach()
+//
+//     return relations;
+//
+// };

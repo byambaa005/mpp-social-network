@@ -49,18 +49,20 @@ it('get likes a post id', function() {
     expect(interactoins.filterByPostId(1,[{id:2, post_id:1}])).to.have.deep.members([{id:2, post_id:1}]);
 });
 it('count likes a post id', function() {
-    expect(interactoins.likeByPostId(1,[{id:2, post_id:1, reaction_type:1}])).to.have.deep.members([{id:2, post_id:1}]);
+    expect(interactoins.likeByPostId(1,[{id:2, post_id:1, reaction_type:1}])).is.greaterThan(0);
 });
 it('get likes a post id', function() {
-    expect(interactoins.dislikeByPostId(1,[{id:2, post_id:1, reaction_type:2}])).to.have.deep.members([{id:2, post_id:1}]);
+    expect(interactoins.dislikeByPostId(1,[{id:2, post_id:1, reaction_type:2}])).is.greaterThan(0);
 });
 it('list user friends', function() {
-    expect(users._listFriends(1)).to.include.deep.members([2,3]);
+    expect(users._listFollowing(1)).to.include.members([2,3]);
 });
 it('list user followers', function() {
-    expect(users._listFollowers(1)).to.include.deep.members([2,3]);
+    expect(users._listFollowers(1)).to.include.members([2,3]);
 });
-
+it('list user  non followers', function() {
+    expect(users._nonFollowers(1)).not.to.include.members([1]);
+});
 it('list friends post', function() {
     expect(posts._listFriendPost(1)).to.include.deep.members([{
         "content": "In computer science, functional programming is a programming paradigm—a style of building the structure and elements of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data.",

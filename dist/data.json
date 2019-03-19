@@ -171,11 +171,11 @@
   "relation_types": [
     {
       "id": 1,
-      "type": "friends"
+      "type": "following"
     },
     {
       "id": 2,
-      "type": "follower"
+      "type": "follows"
     }
   ],
   "posts": [
