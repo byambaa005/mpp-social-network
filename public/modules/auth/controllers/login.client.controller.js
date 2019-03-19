@@ -20,7 +20,6 @@ angular.module('auth')
                         if(response.status ===  200) {
                             $http.get('/api/user/' + userData.id)
                                 .then(function(response) {
-                                    console.log(response.data);
                                     AuthenticationService.SetCredentials(userData.id ,$scope.username, $scope.password, response.data.img);
                                     $location.path('/');
                                 })
@@ -40,7 +39,6 @@ angular.module('auth')
 
                     $http.post('/api/signup', $scope.userSignUpData)
                         .then(function (response) {
-                            console.log(response);
                             alert('Successfully signed up!');
                             window.location = "/#!/login";
                         })

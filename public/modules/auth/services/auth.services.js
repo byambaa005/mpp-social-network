@@ -24,7 +24,6 @@ angular.module('auth')
                      ----------------------------------------------*/
                     $http.post('/api/authenticate', { username: username, password: password })
                        .then(function (response) {
-                           console.log(response);
                            callback(response);
                        })
                         .catch(function(error) {
