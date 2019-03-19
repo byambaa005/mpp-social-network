@@ -5,24 +5,34 @@
         <div class="form-logo">
             <h1 style="text-align: center" >Sign up</h1>
         </div>
-        <form>
-            <input type="text" class="form-control" placeholder="Username">
-            <input type="email" class="form-control" placeholder="Email">
+        <form name="form" ng-submit="userSignUp()" role="form">
+            <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Username"
+                    name="username"
+                    ng-model="userSignUpData.username" required
+            >
+            <input type="email" class="form-control" placeholder="Email" name="email"
+                   ng-model="userSignUpData.email" required>
 
-            <input type="text" class="form-control" placeholder="First name">
-            <input type="text" class="form-control" placeholder="Last name">
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="text" class="form-control" placeholder="First name" name="firstname"
+                   ng-model="userSignUpData.firstname" required>
+            <input type="text" class="form-control" placeholder="Last name" name="lastname"
+                   ng-model="userSignUpData.lastname" required>
+            <input type="password" class="form-control" placeholder="Password" name="password"
+                   ng-model="userSignUpData.password" required>
 
             <div style="margin-top:10px;">
                 <div class="form-check-inline">
                     <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="female" name="gender">
+                        <input type="radio" class="custom-control-input" id="female" ng-model="userSignUpData.gender" name="gender" value="1" ng-required="!userSignUpData.gender">
                         <label class="custom-control-label" for="female">Female</label>
                     </div>
                 </div>
                 <div class="form-check-inline">
                     <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="male" name="gender">
+                        <input type="radio" class="custom-control-input" id="male" ng-model="userSignUpData.gender" name="gender" value="2" ng-required="!userSignUpData.gender">
                         <label class="custom-control-label" for="male">Male</label>
                     </div>
                 </div>

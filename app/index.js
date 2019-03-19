@@ -25,5 +25,8 @@ module.exports = function (app) {
     app.route('/api/authenticate')
         .post(users.auth);
 
+    app.route('/api/signup')
+        .post(users.signup);
+
 };
 
