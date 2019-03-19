@@ -22,4 +22,6 @@ const filterByPostId =(id,data) => R.filter(eqByPostId(id),data);
 exports.comments = function(req, res) {
     const cs = filterByPostId(parseInt(req.params.postId),comments );
     res.send(cs);
-};
+}
+
+exports.filterByPostId = filterByPostId;
