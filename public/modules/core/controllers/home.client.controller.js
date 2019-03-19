@@ -3,10 +3,11 @@
 angular.module('core').controller('HomeController', ['$scope', '$http', '$cookies', '$window',
 	function($scope, $http, $cookies, $window) {
 		// This provides Authentication context.
-		$scope.formData = {content: ''};
 
 		$scope.curUser = JSON.parse($window.localStorage.getItem('user')).currentUser;
 		console.log($scope.curUser);
+
+		$scope.formData = {content: '', userId: $scope.curUser.id};
 
 		// when landing on the page, get all posts and show them
 		$scope.getPosts = function() {
@@ -51,7 +52,7 @@ angular.module('core').controller('HomeController', ['$scope', '$http', '$cookie
 			} else {
 				$http.post('/api/posts', $scope.formData)
 					.then(function(response) {
-						$scope.formData = {content: ''}; // clear the form so our user is ready to enter another
+						$scope.formData = {content: '', userId: $scope.curUser.id}; // clear the form so our user is ready to enter another
 						$scope.getPosts();
 						console.log(response);
 					})

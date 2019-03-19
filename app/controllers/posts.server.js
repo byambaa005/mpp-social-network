@@ -28,19 +28,22 @@ exports.list = function(req, res) {
  */
 exports.create = function (req, res) {
 
+    console.log(req.body);
+
     if (!req.body) {
         return res.status(400).send({
             message: 'Post cannot be empty!'
         });
     }
     let curDate = new Date();
-    const {content} = req.body;
     const newPost ={
         id: posts.length + 1,
-        content,
+        content: req.body.content,
         created_date: curDate.toJSON(),
-        user_id: 1
+        user_id: req.body.userId
     };
+
+    console.log(newPost);
     posts = addToPost(newPost,posts);
     res.status(200).send();
 };
