@@ -552,8 +552,254 @@
       "content": "Meanwhile, the development of Scheme, a simple lexically scoped and (impurely) functional dialect of Lisp, as described in the influential Lambda Papers and the classic 1985 textbook Structure and Interpretation of Computer Programs, brought awareness of the power of functional programming to the wider programming-languages community..",
       "created_date": "2019-03-16T18:55:43.511Z",
       "user_id": 6
-    }
+    },
 
+
+    {
+      "id": 1,
+      "content": "In computer science, functional programming is a programming paradigm—a style of building the structure and elements of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data.",
+      "created_date": "2019-03-14T18:25:43.511Z",
+      "user_id": 7
+    },
+    {
+      "id": 2,
+      "content": "Programming in a functional style can also be accomplished in languages that are not specifically designed for functional programming. For example, the imperative Perl programming language has been the subject of a book describing how to apply functional programming concepts.",
+      "created_date": "2019-03-15T18:25:43.511Z",
+      "user_id": 7
+    },
+    {
+      "id": 3,
+      "content": "Lambda calculus provides a theoretical framework for describing functions and their evaluation. It is a mathematical abstraction rather than a programming language—but it forms the basis of almost all current functional programming languages.",
+      "created_date": "2019-03-16T18:25:43.511Z",
+      "user_id": 7
+    },
+    {
+      "id": 4,
+      "content": "Purely functional programming consists in ensuring that functions, inside the functional paradigm, will only depend on their arguments, regardless of any global or local state.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 7
+    },
+    {
+      "id": 5,
+      "content": "Each evaluation strategy which ends on a purely functional programs returns the same result.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 7
+    },
+    {
+      "id": 6,
+      "content": "Parallel computing is Purely functional programming simplifies parallel computing[5] since two purely functional parts of the evaluation never interact.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 7
+    },
+    {
+      "id": 7,
+      "content": "Arrays can be replaced by map or random access list, which admits purely functional implementation, but the access and update time is logarithmic.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 7
+    },
+    {
+      "id": 8,
+      "content": "Programming in a functional style can also be accomplished in languages that are not specifically designed for functional programming.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 7
+    },
+    {
+      "id": 9,
+      "content": "The 1973 language ML was created by Robin Milner at the University of Edinburgh, and David Turner developed the language SASL at the University of St Andrews.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 7
+    },
+    {
+      "id": 10,
+      "content": "Meanwhile, the development of Scheme, a simple lexically scoped and (impurely) functional dialect of Lisp, as described in the influential Lambda Papers and the classic 1985 textbook Structure and Interpretation of Computer Programs, brought awareness of the power of functional programming to the wider programming-languages community..",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 7
+    },
+
+    {
+      "id": 1,
+      "content": "In computer science, functional programming is a programming paradigm—a style of building the structure and elements of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data.",
+      "created_date": "2019-03-14T18:25:43.511Z",
+      "user_id": 8
+    },
+    {
+      "id": 2,
+      "content": "Programming in a functional style can also be accomplished in languages that are not specifically designed for functional programming. For example, the imperative Perl programming language has been the subject of a book describing how to apply functional programming concepts.",
+      "created_date": "2019-03-15T18:25:43.511Z",
+      "user_id": 8
+    },
+    {
+      "id": 3,
+      "content": "Lambda calculus provides a theoretical framework for describing functions and their evaluation. It is a mathematical abstraction rather than a programming language—but it forms the basis of almost all current functional programming languages.",
+      "created_date": "2019-03-16T18:25:43.511Z",
+      "user_id": 8
+    },
+    {
+      "id": 4,
+      "content": "Purely functional programming consists in ensuring that functions, inside the functional paradigm, will only depend on their arguments, regardless of any global or local state.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 8
+    },
+    {
+      "id": 5,
+      "content": "Each evaluation strategy which ends on a purely functional programs returns the same result.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 8
+    },
+    {
+      "id": 6,
+      "content": "Parallel computing is Purely functional programming simplifies parallel computing[5] since two purely functional parts of the evaluation never interact.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 8
+    },
+    {
+      "id": 7,
+      "content": "Arrays can be replaced by map or random access list, which admits purely functional implementation, but the access and update time is logarithmic.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 8
+    },
+    {
+      "id": 8,
+      "content": "Programming in a functional style can also be accomplished in languages that are not specifically designed for functional programming.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 8
+    },
+    {
+      "id": 9,
+      "content": "The 1973 language ML was created by Robin Milner at the University of Edinburgh, and David Turner developed the language SASL at the University of St Andrews.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 8
+    },
+    {
+      "id": 10,
+      "content": "Meanwhile, the development of Scheme, a simple lexically scoped and (impurely) functional dialect of Lisp, as described in the influential Lambda Papers and the classic 1985 textbook Structure and Interpretation of Computer Programs, brought awareness of the power of functional programming to the wider programming-languages community..",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 8
+    },
+
+
+    {
+      "id": 1,
+      "content": "In computer science, functional programming is a programming paradigm—a style of building the structure and elements of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data.",
+      "created_date": "2019-03-14T18:25:43.511Z",
+      "user_id": 10
+    },
+    {
+      "id": 2,
+      "content": "Programming in a functional style can also be accomplished in languages that are not specifically designed for functional programming. For example, the imperative Perl programming language has been the subject of a book describing how to apply functional programming concepts.",
+      "created_date": "2019-03-15T18:25:43.511Z",
+      "user_id": 9
+    },
+    {
+      "id": 3,
+      "content": "Lambda calculus provides a theoretical framework for describing functions and their evaluation. It is a mathematical abstraction rather than a programming language—but it forms the basis of almost all current functional programming languages.",
+      "created_date": "2019-03-16T18:25:43.511Z",
+      "user_id": 9
+    },
+    {
+      "id": 4,
+      "content": "Purely functional programming consists in ensuring that functions, inside the functional paradigm, will only depend on their arguments, regardless of any global or local state.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 9
+    },
+    {
+      "id": 5,
+      "content": "Each evaluation strategy which ends on a purely functional programs returns the same result.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 9
+    },
+    {
+      "id": 6,
+      "content": "Parallel computing is Purely functional programming simplifies parallel computing[5] since two purely functional parts of the evaluation never interact.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 9
+    },
+    {
+      "id": 7,
+      "content": "Arrays can be replaced by map or random access list, which admits purely functional implementation, but the access and update time is logarithmic.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 9
+    },
+    {
+      "id": 8,
+      "content": "Programming in a functional style can also be accomplished in languages that are not specifically designed for functional programming.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 9
+    },
+    {
+      "id": 9,
+      "content": "The 1973 language ML was created by Robin Milner at the University of Edinburgh, and David Turner developed the language SASL at the University of St Andrews.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 9
+    },
+    {
+      "id": 10,
+      "content": "Meanwhile, the development of Scheme, a simple lexically scoped and (impurely) functional dialect of Lisp, as described in the influential Lambda Papers and the classic 1985 textbook Structure and Interpretation of Computer Programs, brought awareness of the power of functional programming to the wider programming-languages community..",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 9
+    },
+
+
+    {
+      "id": 1,
+      "content": "In computer science, functional programming is a programming paradigm—a style of building the structure and elements of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data.",
+      "created_date": "2019-03-14T18:25:43.511Z",
+      "user_id": 10
+    },
+    {
+      "id": 2,
+      "content": "Programming in a functional style can also be accomplished in languages that are not specifically designed for functional programming. For example, the imperative Perl programming language has been the subject of a book describing how to apply functional programming concepts.",
+      "created_date": "2019-03-15T18:25:43.511Z",
+      "user_id": 10
+    },
+    {
+      "id": 3,
+      "content": "Lambda calculus provides a theoretical framework for describing functions and their evaluation. It is a mathematical abstraction rather than a programming language—but it forms the basis of almost all current functional programming languages.",
+      "created_date": "2019-03-16T18:25:43.511Z",
+      "user_id": 10
+    },
+    {
+      "id": 4,
+      "content": "Purely functional programming consists in ensuring that functions, inside the functional paradigm, will only depend on their arguments, regardless of any global or local state.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 10
+    },
+    {
+      "id": 5,
+      "content": "Each evaluation strategy which ends on a purely functional programs returns the same result.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 10
+    },
+    {
+      "id": 6,
+      "content": "Parallel computing is Purely functional programming simplifies parallel computing[5] since two purely functional parts of the evaluation never interact.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 10
+    },
+    {
+      "id": 7,
+      "content": "Arrays can be replaced by map or random access list, which admits purely functional implementation, but the access and update time is logarithmic.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 10
+    },
+    {
+      "id": 8,
+      "content": "Programming in a functional style can also be accomplished in languages that are not specifically designed for functional programming.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 10
+    },
+    {
+      "id": 9,
+      "content": "The 1973 language ML was created by Robin Milner at the University of Edinburgh, and David Turner developed the language SASL at the University of St Andrews.",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 10
+    },
+    {
+      "id": 10,
+      "content": "Meanwhile, the development of Scheme, a simple lexically scoped and (impurely) functional dialect of Lisp, as described in the influential Lambda Papers and the classic 1985 textbook Structure and Interpretation of Computer Programs, brought awareness of the power of functional programming to the wider programming-languages community..",
+      "created_date": "2019-03-16T18:55:43.511Z",
+      "user_id": 10
+    }
 
   ],
   "post_comments": [
