@@ -1,4 +1,4 @@
-# mpp-social-network
+# MPP-SOCIAL-NETWORK
 MPP social network (functional programming)
 
 
