@@ -4,36 +4,30 @@
 
 <!--Left Sidebar with info Profile -->
 <div class="sidebar-nav">
-	<a href="#" title="Profile">
-		<img src="../../../images/avatars/male.png" alt="User name" class="rounded-circle img-user">
-	</a>
-	<h2 class="text-center hidden-xs profile-name"><a href="#!/profile" title="Profile">{{curUser.username}}</a></h2>
-	<p class="text-center user-description hidden-xs">
-		<i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</i>
-	</p>
+    <a href="#" title="Profile">
+        <img src="../../../images/avatars/male.png" alt="User name" class="rounded-circle img-user">
+    </a>
+    <h2 class="text-center hidden-xs profile-name"><a href="#!/profile" title="Profile">{{curUser.username}}</a></h2>
+    <p class="text-center user-description hidden-xs">
+        <i>Profile description!</i>
+    </p>
 </div>
 
 <!--Wall with Post -->
-<div class="content-posts active" id="posts">
+<div class="content-posts active" id="posts" data-ng-init="getUserPosts()">
     <div id="posts-container" class="container-fluid container-posts" data-ng-init="getPosts()">
 
         <div class="row">
             <!--middle container-->
             <div class="col-md-8">
-                <div id="todo-form" class="row" style="padding:15px;">
-                    <div class="col-xs-8 col-sm-offset-2 text-center" style="margin-bottom: 20px;">
-                        <form>
-                            <div class="form-group">
-                                <div class="input-group">
-							<textarea rows="4" cols="500" class="form-control input-lg"
-                                      placeholder="What is on your mind?" ng-model="formData.content"></textarea>
-                                    <span class="input-group-addon btn btn-add btn-lg textarea-addon"
-                                          ng-click="addPost()">Post</span>
-                                </div>
-                            </div>
-                            <!--<button type="submit" class="btn btn-add btn-lg" ng-click="addPost()">Post</button>-->
-                        </form>
-                    </div>
+
+                <div class="card-post" style="margin-top:16px;">
+                    <h2>User data</h2>
+                    <ul class="profile-data">
+                        <li><b>Username:</b> User</li>
+                        <li><b>Fullname:</b> Byambadorj Dulamsuren</li>
+                        <li><b>Description:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                    </ul>
                 </div>
 
                 <div class="card-post" ng-repeat="post in posts | orderBy: '-created_date'">
@@ -73,6 +67,7 @@
             <!--right sidebar-->
             <div class="col-md-4" data-ng-init="getUserProfiles()">
                 <div class="profiles">
+                    <h2>Friends list</h2>
                     <div class="profile-block" data-ng-repeat="user in users">
                         <div class="row">
                             <div class="col-md-4 text-center">
@@ -85,8 +80,6 @@
                             </div>
                             <div class="col-md-8">
                                 <h3 style="margin-top:10px;font-size:12px;margin-bottom:10px;"><a href="#" title="Profile">{{user.firstname}} {{user.lastname}}</a></h3>
-                                <button class="btn btn-small btn-sm">Add friend</button>
-                                <button style="margin-left:5px;" class="btn btn-small btn-sm">Follow</button>
                             </div>
                         </div>
                     </div>
@@ -94,22 +87,8 @@
             </div>
         </div>
 
-        <!--Close #posts-container-->
-        <div id="loading" style="display: none;">
-            <img src="./images/load.gif" alt="loader">
-        </div>
     </div>
 
-</div>
-
-
-<!-- Close #posts -->
-<!-- Modal container for settings--->
-<div id="settingsmodal" class="modal fade text-center">
-	<div class="modal-dialog">
-		<div class="modal-content">
-		</div>
-	</div>
 </div>
 
 </body>

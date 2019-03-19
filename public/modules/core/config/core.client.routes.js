@@ -13,5 +13,12 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 			controller: 'HomeController',
 			templateUrl: 'modules/core/views/wall.template.html'
 		});
+
+		$stateProvider.
+		state('profile', {
+			url: '/profile',
+			controller: 'ProfileController',
+			templateUrl: 'modules/core/views/profile.template.html'
+		});
 	}
 ]);
