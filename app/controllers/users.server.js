@@ -107,7 +107,8 @@ exports._signup = function(userRaw) {
  * Sign up new user
  */
 exports._listFriends = function(userId) {
-    users = addToUsers(newUser ,users);
-    return users;
+    let relations = filterUserId(userId,userRelations)
+    console.log(relations);
+    return relations;
 
 };
