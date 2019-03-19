@@ -247,7 +247,7 @@
 
     {
       "id": 1,
-      "content": "In computer science, functional programming is a programming paradigm—a style of building the structure and elements of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data.",
+      "content": "Iteration (looping) in functional languages is usually accomplished via recursion. Recursive functions invoke themselves, letting an operation be repeated until it reaches the base case.",
       "created_date": "2019-03-14T18:25:43.511Z",
       "user_id": 2
     },
