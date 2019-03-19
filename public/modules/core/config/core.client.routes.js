@@ -7,18 +7,21 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 		$urlRouterProvider.otherwise('/');
 
 		// Home state routing
-		$stateProvider.
-		state('home', {
-			url: '/',
-			controller: 'HomeController',
-			templateUrl: 'modules/core/views/wall.template.html'
-		});
-
-		$stateProvider.
-		state('profile', {
-			url: '/profile',
-			controller: 'ProfileController',
-			templateUrl: 'modules/core/views/profile.template.html'
-		});
+        $stateProvider
+            .state('home', {
+                url: '/',
+                controller: 'HomeController',
+                templateUrl: 'modules/core/views/wall.template.html'
+            })
+            .state('profile', {
+                url: '/profile',
+                controller: 'ProfileController',
+                templateUrl: 'modules/core/views/profile.template.html'
+            })
+            .state('friends', {
+                url: '/friends',
+                controller: 'FriendsController',
+                templateUrl: 'modules/core/views/friends.template.html'
+            });
 	}
 ]);
