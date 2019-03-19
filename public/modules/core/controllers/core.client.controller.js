@@ -4,7 +4,7 @@ angular.module('core').controller('CoreController', ['$scope', '$http', '$cookie
     function($scope, $http, $cookies, $window, AuthenticationService, $location, $rootScope) {
 
         $scope.userLoggedIn = function () {
-            return ($window.localStorage.getItem('user') !== null);
+            return (($window.localStorage.getItem('user') !== null) && $location.path() !== '/login' && $location.path() !== '/signup');
         };
 
         // This provides Authentication context.

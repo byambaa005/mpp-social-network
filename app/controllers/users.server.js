@@ -156,7 +156,6 @@ exports.listFollowers = function(req, res) {
  * Sign up new user
  */
 exports.nonFollowers = function(req, res) {
-    console.log(req.params);
     let relationfs =exports._nonFollowers(parseInt(req.params.userId));
     let userFros = [];
     for (let i = 0; i < relationfs.length-1; i++) {
@@ -192,16 +191,42 @@ exports._nonFollowers = function(userId) {
     return R.without(allRelatedUsers, usersId);;
 };
 
+/**
+ * Get user info by id
+ */
+exports.getUserById = function (req, res) {
+    let user = exports._getUserById(req.params.userId);
+    res.status(200).send(user);
+};
 
-// /**
-//  * Sign up new user
-//  */
-// exports._searchUser = function(searchText) {
-//
-//     const searchUsername = (searchText)=> R.propEq('username', username)
-//
-//     let userId = R.forEach()
-//
-//     return relations;
-//
-// };
+exports._getUserById = function (userId) {
+    return findByUserId(parseInt(userId), users);
+};
+
+/**
+ * Follow a user
+ */
+exports._followUser = function (userId, followUserId) {
+    const newRelation ={
+        id: userRelations.length + 1,
+        user_id: parseInt(userId),
+        related_user_id: parseInt(followUserId),
+        relation_type: 2
+    };
+    userRelations = addToUsers(newRelation ,userRelations);
+    return userRelations;
+};
+
+/**
+ * Add comment
+ */
+exports.followUser = function(req, res) {
+
+    if (!req.params.userId) {
+        return res.status(400).send({
+            message: 'No user to follow!'
+        });
+    }
+    exports._followUser (req.body.userId ,req.params.userId);
+    res.status(200).send();
+};
