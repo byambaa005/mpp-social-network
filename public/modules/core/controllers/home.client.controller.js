@@ -23,21 +23,9 @@ angular.module('core').controller('HomeController', ['$scope', '$http', '$cookie
 		$scope.getPostInteractions = function(postId) {
 			$http.get('/api/interactions/' + postId)
 				.then(function(response) {
-					$scope.comments = response.data.comments || 0;
+					$scope.comments = response.data || 0;
 					$scope.likesCount = response.data.likesCount || 0;
 					$scope.dislikesCount = response.data.dislikesCount || 0;
-				})
-				.catch(function(data) {
-					console.log('Error: ' + data);
-				});
-		};
-
-		// get post comments
-		$scope.getPostComments = function(postId) {
-			$http.get('/api/comments/' + postId)
-				.then(function(response) {
-					$scope.comments = response.data;
-					console.log($scope.comments);
 				})
 				.catch(function(data) {
 					console.log('Error: ' + data);
@@ -65,14 +53,14 @@ angular.module('core').controller('HomeController', ['$scope', '$http', '$cookie
 		};
 
 		// when submitting the add form, send the text to the node API
-		$scope.addComment = function(postId, userId) {
+		$scope.addComment = function(postId, userId, commentContent) {
 
-			let commentData = {
-				content: $scope.curComment,
+            let commentData = {
+				content: commentContent,
 				userId: userId,
 				postId: postId
 			};
-			$http.post('/api/posts', commentData)
+			$http.post('/api/createComment', commentData)
 				.then(function (response) {
 					$scope.curComment = "";
 					$scope.getPosts();
@@ -84,15 +72,5 @@ angular.module('core').controller('HomeController', ['$scope', '$http', '$cookie
 				});
 		};
 
-		// delete a todo after checking it
-		$scope.deleteTodo = function(id) {
-			$http.delete('/api/posts/' + id)
-				.then(function(response) {
-					$scope.posts = response;
-				})
-				.catch(function(error) {
-					console.log('Error: ' + error);
-				});
-		};
 	}
 ]);

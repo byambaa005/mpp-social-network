@@ -170,8 +170,8 @@
   ],
   "relation_types": [
     {
-    "id": 1,
-    "type": "friends"
+      "id": 1,
+      "type": "friends"
     },
     {
       "id": 2,

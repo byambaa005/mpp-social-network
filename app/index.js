@@ -19,6 +19,9 @@ module.exports = function (app) {
     app.route('/api/interactions/:postId')
         .get(interactions.comments);
 
+    app.route('/api/createComment')
+        .post(interactions.createComment);
+
     app.route('/api/posts')
         .post(posts.create);
 
@@ -27,6 +30,7 @@ module.exports = function (app) {
 
     app.route('/api/signup')
         .post(users.signup);
+
 
 };
 

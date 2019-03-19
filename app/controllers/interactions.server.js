@@ -16,27 +16,32 @@ const filterByUserId =(id,data) => R.filter(eqByUserId(id),data);
 
 const filterByPostId =(id,data) => R.filter(eqByPostId(id),data);
 
+// adding comment to comments function
+const addToComment = (comment,comments) =>R.append(comment,comments);
+
 /**
  * List of Post comments by post Id
  */
 exports.comments = function(req, res) {
-    const cs = filterByPostId(parseInt(req.params.postId),comments );
+    const cs = filterByPostId(parseInt(req.params.postId) ,comments );
+    console.log(cs);
     res.send(cs);
 };
 
 exports.filterByPostId = filterByPostId;
 
 
-exports._createComment = function (postContent,userId) {
+exports._createComment = function (commentContent,userId, postId) {
     let curDate = new Date();
-    const newPost ={
-        id: posts.length + 1,
-        content:postContent,
+    const newComment ={
+        id: comments.length + 1,
+        content:commentContent,
         created_date: curDate.toJSON(),
-        user_id: parseInt(userId)
+        user_id: parseInt(userId),
+        post_id: postId
     };
-    posts = addToPost(newPost,posts);
-    return posts;
+    comments = addToComment(newComment,comments);
+    return comments;
 };
 
 /**
@@ -44,12 +49,14 @@ exports._createComment = function (postContent,userId) {
  */
 exports.createComment = function(req, res) {
 
+    console.log(req.body);
+
     if (!req.body) {
         return res.status(400).send({
             message: 'Comment cannot be empty!'
         });
     }
-    exports._createComment (req.body,3);
+    exports._createComment (req.body.content ,req.body.userId, req.body.postId);
     res.status(200).send();
 };
 
