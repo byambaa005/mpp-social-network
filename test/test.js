@@ -49,40 +49,9 @@ it('get likes a post id', function() {
     expect(interactoins.filterByPostId(1,[{id:2, post_id:1}])).to.have.deep.members([{id:2, post_id:1}]);
 });
 
-it('list user relations', function() {
-    expect(users._listFriends(1,[
-        {
-            "id": 1,
-            "user_id": 1,
-            "related_user_id": 2,
-            "relation_type": 1
-        },
-        {
-            "id": 1,
-            "user_id": 1,
-            "related_user_id": 3,
-            "relation_type": 2
-        },{
-            "id": 2,
-            "user_id": 2,
-            "related_user_id": 4,
-            "relation_type": 2
-        },
-        {
-            "id": 3,
-            "user_id": 3,
-            "related_user_id": 5,
-            "relation_type": 1
-        }])).to.have.deep.members([{
-        "id": 1,
-        "user_id": 1,
-        "related_user_id": 2,
-        "relation_type": 1
-    },
-        {
-            "id": 1,
-            "user_id": 1,
-            "related_user_id": 3,
-            "relation_type": 2
-        }]);
+it('list user friends', function() {
+    expect(users._listFriends(1)).to.include.deep.members([2,3]);
+});
+it('list user followers', function() {
+    expect(users._listFollowers(1)).to.include.deep.members([2,3]);
 });

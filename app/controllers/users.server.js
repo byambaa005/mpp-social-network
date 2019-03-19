@@ -13,12 +13,37 @@ const eqByUsername = (username)=> R.propEq('username', username);
 const eqByUserEmail = (email)=> R.propEq('email', email);
 // equals to user_id
 const eqByUserId = (id)=>  R.propEq('user_id', id);
+
+// equals to user_id
+const eqByRelationUserId = (id)=>  R.propEq('related_user_id', id);
+
+// equals to id
+const eqById = (id)=>  R.propEq('id', id);
+// equals friends function
+const eqByFriends = ()=> R.propEq('relation_type', 1);
+
+// equals friends function
+const eqByFollow = ()=> R.propEq('relation_type', 2);
+
+
+// filtering by user id function
+const filterFriendUserId =(data) => R.filter(eqByFriends,data);
+
+// filtering by user id function
+const filterFollowerUserId =(data) => R.filter(eqByFollow,data);
+
 // filtering by user id function
 const filterUserId =(id,data) => R.filter(eqByUserId(id),data);
 
+// filtering by user id function
+const filterRalationUserId =(id,data) => R.filter(eqByRelationUserId(id),data);
 
 // find by username
 const findByUsername = (username,data)=> R.find(eqByUsername(username),data);
+
+// find by userId
+const findByUserId = (id,data)=> R.find(eqById(id),data);
+
 // find by username
 const findByUserEmail = (email,data)=> R.find(eqByUserEmail(email),data);
 // adding post to posts function
@@ -100,21 +125,38 @@ exports._signup = function(userRaw) {
 };
 
 
-
 /**
  * Sign up new user
  */
-exports._listFriends = function(userId) {
-    let relations =R.map((o) => o.related_user_id, filterUserId(userId,userRelations))
-    console.log(relations);
-    return relations;
+exports.listFriends = function(req, res) {
+
+    let relationfs =exports._listFriends(parseInt(req.body.userId));
+    let userFros = [];
+    for (let i = 0; i < relationfs.length; i++) {
+        userFros.push(findByUserId(i,users));
+    }
+    console.log(userFros);
+    res.send(userFros)
 
 };
 
 
 /**
- * List of users
+ * Sign up new user
  */
-exports.list = function(req, res) {
-    res.send(users);
+exports._listFriends = function(userId) {
+    let relations =R.union(R.map((o) => o.related_user_id,filterFriendUserId(filterUserId(userId,userRelations))),R.map((o) => o.user_id,filterFriendUserId(filterRalationUserId(userId,userRelations))));
+    console.log(relations);
+
+    return relations;
+
+};
+/**
+ * Sign up new user
+ */
+exports._listFollowers = function(userId) {
+    let relations =R.map((o) => o.related_user_id,filterFollowerUserId(filterUserId(userId,userRelations)));
+    console.log(relations);
+    return relations;
+
 };
