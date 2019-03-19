@@ -14,7 +14,7 @@ it('create post', function() {
 
 
 it('create comment', function() {
-    expect(interactoins._createComment("test",1,1).to.have.deep.members([{
+    expect(interactoins._createComment("test",1,1)).to.have.deep.members([{
         "id": 1,
         "post_id": 1,
         "user_id": 1,
