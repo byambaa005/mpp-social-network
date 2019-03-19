@@ -6,6 +6,7 @@
       "firstname": "Byambadorj",
       "lastname": "Dulamsuren",
       "password": "dGVzdA==",
+      "gender": "male",
       "created_date": "2019-03-14T18:25:43.511Z"
     },
     {
@@ -13,63 +14,90 @@
       "username": "Puujee",
       "firstname": "Purevdemberel",
       "lastname": "Byambatogtokh",
-      "password": "dGVzdA=="
+      "password": "dGVzdA==",
+      "gender": "male",
+      "created_date": "2019-03-14T18:25:43.511Z"
     },
     {
       "id": 3,
       "username": "Anhaa",
       "firstname": "Anherdene",
       "lastname": "Bold",
-      "password": "dGVzdA=="
+      "password": "dGVzdA==",
+      "gender": "male",
+      "created_date": "2019-03-14T18:25:43.511Z"
     },
     {
       "id": 4,
       "username": "Tulgaa",
       "firstname": "Tulga",
       "lastname": "Orosoo",
-      "password": "dGVzdA=="
+      "password": "dGVzdA==",
+      "gender": "male",
+      "created_date": "2019-03-14T18:25:43.511Z"
     },
     {
       "id": 5,
       "username": "Duuk",
       "firstname": "Dulguuntur",
       "lastname": "Enkh",
-      "password": "dGVzdA=="
+      "password": "dGVzdA==",
+      "gender": "male",
+      "created_date": "2019-03-14T18:25:43.511Z"
     },
     {
       "id": 6,
       "username": "Batja",
       "firstname": "Barjargal",
       "lastname": "Naran",
-      "password": "dGVzdA=="
+      "password": "dGVzdA==",
+      "gender": "male",
+      "created_date": "2019-03-14T18:25:43.511Z"
     },
     {
       "id": 7,
       "username": "Turuu",
       "firstname": "Turbat",
       "lastname": "Turbat",
-      "password": "dGVzdA=="
+      "password": "dGVzdA==",
+      "gender": "male",
+      "created_date": "2019-03-14T18:25:43.511Z"
     },
     {
       "id": 8,
       "username": "Ragchaa",
       "firstname": "Ragchaabazar",
       "lastname": "Bud",
-      "password": "dGVzdA=="
+      "password": "dGVzdA==",
+      "gender": "male",
+      "created_date": "2019-03-14T18:25:43.511Z"
     },
     {
       "id": 9,
       "username": "Baachka",
       "firstname": "Angarag",
       "lastname": "Batjargal",
-      "password": "dGVzdA=="
+      "password": "dGVzdA==",
+      "gender": "male",
+      "created_date": "2019-03-14T18:25:43.511Z"
     },
     {
       "id": 10,
       "username": "Bataa",
       "firstname": "Batbold",
       "lastname": "Bold",
-      "password": "dGVzdA=="
+      "password": "dGVzdA==",
+      "gender": "male",
+      "created_date": "2019-03-14T18:25:43.511Z"
+    },
+    {
+      "id": 11,
+      "username": "Haliunaa",
+      "firstname": "Haliun",
+      "lastname": "Bold",
+      "password": "dGVzdA==",
+      "gender": "female",
+      "created_date": "2019-03-14T18:25:43.511Z"
     }
   ],
   "user_relations": [
