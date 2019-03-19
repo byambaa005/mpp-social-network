@@ -9,6 +9,11 @@ angular.module('core').controller('CoreController', ['$scope', '$http', '$cookie
 
         $scope.curUser = JSON.parse($window.localStorage.getItem('user')).currentUser;
 
+        $scope.searchInput = "";
+        $scope.searchUser = function (searchString) {
+            console.log(searchString);
+        };
+
         // This provides Authentication context.
         $scope.signOut = function () {
             AuthenticationService.ClearCredentials();

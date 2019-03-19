@@ -12,6 +12,7 @@ angular.module('core').controller('HomeController', ['$scope', '$http', '$cookie
 			$http.get('/api/user/' + post.user_id)
 				.then(function(response) {
 					post.user = response.data;
+					console.log(post.user);
 				})
 				.catch(function(data) {
 					console.log('Error: ' + data);

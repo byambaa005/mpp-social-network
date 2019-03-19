@@ -56,7 +56,7 @@
 	<!--Header with Nav -->
 	<header class="text-right" ng-show="userLoggedIn()">
 		<form class="text-left search" method="GET">
-			<input name="q" type="text" placeholder="Search..">
+			<input name="q" type="text" placeholder="Search.." ng-model="searchInput" data-ng-click="searchUser(searchInput)">
 		</form>
 		<div class="menu-icon">
 			<div class="dropdown">
