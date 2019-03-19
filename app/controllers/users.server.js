@@ -172,7 +172,6 @@ exports._listFollowing = function(userId) {
 exports._listFollowers = function(userId) {
     let relations =R.map((o) => o.related_user_id,filterFollowerUserId(filterUserId(userId,userRelations)));
     return relations;
-
 };
 
 /**

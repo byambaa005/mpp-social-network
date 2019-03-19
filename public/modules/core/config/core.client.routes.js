@@ -14,7 +14,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
                 templateUrl: 'modules/core/views/wall.template.html'
             })
             .state('profile', {
-                url: '/profile',
+                url: '/profile/:userId',
                 controller: 'ProfileController',
                 templateUrl: 'modules/core/views/profile.template.html'
             })
