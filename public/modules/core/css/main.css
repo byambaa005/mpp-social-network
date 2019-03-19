@@ -18,3 +18,29 @@
     border-color: #3b5998;
     color: white;
 }
+
+.btn-small {
+    background-color: #3b5998;
+    border-color: #3b5998;
+    color: white;
+    height: 25px;
+    font-size: 12px;
+}
+
+.profiles {
+    background: #ffffff;
+    padding: 15px;
+    display: block;
+    overflow: hidden;
+    margin-bottom: 15px;
+    margin-top:16px;
+}
+
+.profile-block {
+    padding: 10px;
+    height: 100px;
+}
+
+.profile-name {
+    margin-top: 10px;
+}

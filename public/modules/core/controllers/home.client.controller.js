@@ -72,5 +72,16 @@ angular.module('core').controller('HomeController', ['$scope', '$http', '$cookie
 				});
 		};
 
+		// get user profiles
+        $scope.getUserProfiles = function () {
+            $http.get('/api/users')
+                .then(function(response) {
+                    $scope.users = response.data || [];
+                })
+                .catch(function(data) {
+                    console.log('Error: ' + data);
+                });
+        }
+
 	}
 ]);

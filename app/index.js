@@ -31,6 +31,8 @@ module.exports = function (app) {
     app.route('/api/signup')
         .post(users.signup);
 
+    app.route('/api/users')
+        .get(users.list);
 
 };
 
