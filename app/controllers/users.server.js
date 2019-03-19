@@ -129,25 +129,32 @@ exports._signup = function(userRaw) {
  * Sign up new user
  */
 exports.listFriends = function(req, res) {
-
     let relationfs =exports._listFriends(parseInt(req.param.userId));
     let userFros = [];
     for (let i = 0; i < relationfs.length-1; i++) {
         userFros.push(findByUserId(relationfs[i],users));
     }
-    console.log(userFros);
     res.send(userFros)
 
 };
 
+/**
+ * Sign up new user
+ */
+exports.listFollowers = function(req, res) {
+    let relationfs =exports._listFollowers(parseInt(req.param.userId));
+    let userFros = [];
+    for (let i = 0; i < relationfs.length-1; i++) {
+        userFros.push(findByUserId(relationfs[i],users));
+    }
+    res.send(userFros)
 
+};
 /**
  * Sign up new user
  */
 exports._listFriends = function(userId) {
     let relations =R.union(R.map((o) => o.related_user_id,filterFriendUserId(filterUserId(userId,userRelations))),R.map((o) => o.user_id,filterFriendUserId(filterRalationUserId(userId,userRelations))));
-    console.log(relations);
-
     return relations;
 
 };
@@ -156,7 +163,6 @@ exports._listFriends = function(userId) {
  */
 exports._listFollowers = function(userId) {
     let relations =R.map((o) => o.related_user_id,filterFollowerUserId(filterUserId(userId,userRelations)));
-    console.log(relations);
     return relations;
 
 };

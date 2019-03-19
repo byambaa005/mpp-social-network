@@ -1,7 +1,7 @@
 const R = require('ramda');
 const fs = require('fs');
 
-let usersServer = require('users.server');
+let usersServer = require('./users.server.js');
 let rawData = fs.readFileSync('./dist/data.json');
 let dummyData = JSON.parse(rawData);
 let posts = dummyData['posts'];
@@ -54,8 +54,24 @@ exports.create = function (req, res) {
     exports._createPost (req.body.content, req.body.userId);
     res.status(200).send();
 };
+/**
+ *
+ * @param req
+ * @param res
+ */
+exports.listFriendPost = function(req, res) {
+    res.send(exports._listFriendPost(parseInt(req.params.userId)));
+};
 
 exports._listFriendPost = function (userId) {
-    // let rel
-    return userId;
+    let relationFs = usersServer._listFriends(userId);
+    let relationFollowers = usersServer._listFollowers(userId);
+    console.log(relationFollowers);
+    let allRelatedUsers = R.union(relationFs,relationFollowers);
+    console.log(allRelatedUsers);
+    let userFros = [];
+    for (let i = 0; i < allRelatedUsers.length-1; i++) {
+        userFros.push(filterUserId(allRelatedUsers[i],posts))
+    }
+    return R.flatten(userFros);
 };

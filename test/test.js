@@ -55,3 +55,17 @@ it('list user friends', function() {
 it('list user followers', function() {
     expect(users._listFollowers(1)).to.include.deep.members([2,3]);
 });
+
+it('list friends post', function() {
+    expect(posts._listFriendPost(1)).to.include.deep.members([{
+        "content": "In computer science, functional programming is a programming paradigm—a style of building the structure and elements of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data.",
+        "created_date": "2019-03-14T18:25:43.511Z",
+        "id": 11,
+        "user_id": 2
+    },{
+        "content": "Programming in a functional style can also be accomplished in languages that are not specifically designed for functional programming.",
+        "created_date": "2019-03-16T18:55:43.511Z",
+        "id": 21,
+        "user_id": 3
+    }]);
+});
