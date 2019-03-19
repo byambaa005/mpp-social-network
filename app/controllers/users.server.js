@@ -113,6 +113,12 @@ exports.signup = function(req, res) {
  */
 exports._signup = function(userRaw) {
     let curDate = new Date();
+    let imgPath = 'male.jpg';
+
+    if (userRaw.gender === 'female') {
+        imgPath = 'female.jpg'
+    }
+
     const newUser = {
         id: users.length + 1,
         username: userRaw.username,
@@ -120,6 +126,7 @@ exports._signup = function(userRaw) {
         firstname: userRaw.firstname,
         lastname: userRaw.lastname,
         gender: userRaw.gender,
+        img: imgPath,
         created_date: curDate.toJSON()
     };
     users = addToUsers(newUser ,users);
