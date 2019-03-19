@@ -18,7 +18,7 @@ Then sign up users after directly sign in user
 
 Trying to use we need to create
 test, *test*
-visitor, *test* needed to sign up.
+visitor, *test* needed to sign up
 
 Stack
 Docker - 2.0.0
