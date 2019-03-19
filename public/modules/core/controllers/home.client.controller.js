@@ -8,6 +8,16 @@ angular.module('core').controller('HomeController', ['$scope', '$http', '$cookie
 		console.log($scope.curUser);
 
 
+		$scope.getUserById = function (post) {
+			$http.get('/api/user/' + post.user_id)
+				.then(function(response) {
+					post.user = response.data;
+				})
+				.catch(function(data) {
+					console.log('Error: ' + data);
+				});
+		};
+
 		// when landing on the page, get all posts and show them
 		$scope.getPosts = function() {
 			$http.get('/api/posts/' + $scope.curUser.id)
@@ -20,10 +30,10 @@ angular.module('core').controller('HomeController', ['$scope', '$http', '$cookie
 		};
 
 		// get post reactions
-		$scope.getPostComments = function(postId) {
-			$http.get('/api/interactions/' + postId)
+		$scope.getPostComments = function(post) {
+			$http.get('/api/interactions/' + post.id)
 				.then(function(response) {
-					$scope.comments = response.data || [];
+					post.comments = response.data || [];
 				})
 				.catch(function(data) {
 					console.log('Error: ' + data);
@@ -31,31 +41,28 @@ angular.module('core').controller('HomeController', ['$scope', '$http', '$cookie
 		};
 
         // get post reaction stats
-        $scope.getPostReactionStats = function(postId) {
-			$http.get('/api/likeCount/' + postId)
+        $scope.getPostReactionStats = function(post) {
+			$http.get('/api/likeCount/' + post.id)
                 .then(function(response) {
-					console.log(response);
-					$scope.likesCount = response.data.count || 0;
+					post.likesCount = response.data.count || 0;
                 })
                 .catch(function(data) {
                     console.log('Error: ' + data);
                 });
 
-			$http.get('/api/dislikeCount/' + postId)
+			$http.get('/api/dislikeCount/' + post.id)
 				.then(function(response) {
-					$scope.dislikesCount = response.data.count || 0;
+					post.dislikesCount = response.data.count || 0;
 				})
 				.catch(function(data) {
 					console.log('Error: ' + data);
 				});
         };
 
-        $scope.likePost = function (postId) {
-			console.log(postId);
-			$http.post('/api/likePost', {postId: postId, userId: $scope.curUser.id, type: 1})
+        $scope.likePost = function (post) {
+			$http.post('/api/likePost', {postId: post.id, userId: $scope.curUser.id, type: 1})
 				.then(function (response) {
-					console.log(response);
-					$scope.getPostReactionStats(postId);
+					$scope.getPostReactionStats(post);
 				})
 				.catch(function (error) {
 					console.log('Error: ' + error);
@@ -63,11 +70,10 @@ angular.module('core').controller('HomeController', ['$scope', '$http', '$cookie
 				});
 		};
 
-		$scope.dislikePost = function (postId) {
-			$http.post('/api/dislikePost', {postId: postId, userId: $scope.curUser.id, type: 2})
+		$scope.dislikePost = function (post) {
+			$http.post('/api/dislikePost', {postId: post.id, userId: $scope.curUser.id, type: 2})
 				.then(function (response) {
-					console.log(response);
-					$scope.getPostReactionStats(postId);
+					$scope.getPostReactionStats(post);
 				})
 				.catch(function (error) {
 					console.log('Error: ' + error);
@@ -124,7 +130,20 @@ angular.module('core').controller('HomeController', ['$scope', '$http', '$cookie
                 .catch(function(data) {
                     console.log('Error: ' + data);
                 });
-        }
+        };
+
+        $scope.follow = function (user) {
+			$http.post('/api/follow/' + user.id, {userId: $scope.curUser.id})
+				.then(function (response) {
+					$scope.getPosts();
+					$scope.getUserProfiles();
+					console.log(response);
+				})
+				.catch(function (error) {
+					console.log('Error: ' + error);
+					alert(error);
+				});
+		}
 
 	}
 ]);

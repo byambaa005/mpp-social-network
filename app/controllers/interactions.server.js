@@ -44,13 +44,13 @@ exports.comments = function(req, res) {
  * List of Post comments by post Id
  */
 exports.likeCount = function(req, res) {
-    return res.status(200).send({count: likeByPostId(parseInt(req.params.postId) ,comments )});
+    return res.status(200).send({count: likeByPostId(parseInt(req.params.postId) ,reactions )});
 };
 /**
  * List of Post comments by post Id
  */
 exports.dislikeCount = function(req, res) {
-    res.status(200).send({count: dislikeByPostId(parseInt(req.params.postId) ,comments )});
+    res.status(200).send({count: dislikeByPostId(parseInt(req.params.postId) ,reactions )});
 };
 
 exports._createReaction = function (userId,postId, type) {
@@ -62,9 +62,7 @@ exports._createReaction = function (userId,postId, type) {
         user_id: parseInt(userId),
         post_id: postId
     };
-    console.log(newReaction);
     reactions = addToComment(newReaction,reactions);
-    console.log(reactions);
     return reactions;
 };
 
@@ -100,8 +98,6 @@ exports.createComment = function(req, res) {
  * Add reaction
  */
 exports.createReaction = function(req, res) {
-
-    console.log(req.body);
 
     if (!req.body) {
         return res.status(400).send({

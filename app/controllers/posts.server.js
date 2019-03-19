@@ -68,7 +68,7 @@ exports._listFriendPost = function (userId) {
     let relationFollowers = usersServer._listFollowers(userId);
     let allRelatedUsers = R.union(relationFs,relationFollowers);
     let userFros = [];
-    for (let i = 0; i < allRelatedUsers.length-1; i++) {
+    for (let i = 0; i < allRelatedUsers.length; i++) {
         userFros.push(filterUserId(allRelatedUsers[i],posts))
     }
     return R.flatten(userFros);

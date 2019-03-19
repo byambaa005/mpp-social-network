@@ -3,9 +3,10 @@ const fs = require('fs');
 
 let rawData = fs.readFileSync('./dist/data.json');
 let dummyData = JSON.parse(rawData);
-let users = dummyData['users'];
+const dummyUsers = dummyData['users'];
 let userRelations = dummyData['user_relations'];
 
+let users = dummyUsers;
 
 // equals username function
 const eqByUsername = (username)=> R.propEq('username', username);
@@ -52,8 +53,6 @@ const addToUsers = (user ,users) =>R.append(user ,users);
 const encPass = (password) =>Buffer.from(password).toString('ascii');
 // find by username
 const searchByUser = (user,name)=> R.find(eqByUserEmail(email),data);
-
-
 /**
  * Login user
  */
@@ -88,6 +87,7 @@ exports.auth = function(req, res) {
  * Sign up new user
  */
 exports.signup = function(req, res) {
+    console.log(req.body);
     if (!req.body) {
         return res.status(400).send({
             message: "User data incomplete!"
@@ -120,6 +120,7 @@ exports._signup = function(userRaw) {
         passsord: userRaw.password,
         firstname: userRaw.firstname,
         lastname: userRaw.lastname,
+        gender: userRaw.gender,
         created_date: curDate.toJSON()
     };
     users = addToUsers(newUser ,users);
@@ -127,38 +128,43 @@ exports._signup = function(userRaw) {
 
 };
 
+
 /**
  * Sign up new user
  */
 exports.listFriends = function(req, res) {
-    res.send(exports._listUsersById(exports._listFollowing(parseInt(req.params.userId))));
+    let relationfs =exports._listFollowing(parseInt(req.params.userId));
+    let userFros = [];
+    for (let i = 0; i < relationfs.length; i++) {
+        userFros.push(findByUserId(relationfs[i],users));
+    }
+    res.send(userFros)
+
 };
 
 /**
  * Sign up new user
  */
 exports.listFollowers = function(req, res) {
-    res.send(exports._listUsersById(exports._listFollowers(parseInt(req.params.userId))));
-};
-
-/**
- * Sign up new user
- */
-exports._listUsersById = (userIds) => {
+    let relationfs =exports._listFollowers(parseInt(req.params.userId));
     let userFros = [];
-    console.log(userIds[0])
-    for (let i = 0; i < userIds.length; i++) {
-        userFros.push(findByUserId(userIds[i],users));
+    for (let i = 0; i < relationfs.length; i++) {
+        userFros.push(findByUserId(relationfs[i],users));
     }
-    console.log(userFros)
-    return userFros;
+    res.send(userFros)
 
 };
+
 /**
  * Sign up new user
  */
 exports.nonFollowers = function(req, res) {
-    res.send(exports._listUsersById(exports._nonFollowers(parseInt(req.params.userId))));
+    let relationfs =exports._nonFollowers(parseInt(req.params.userId));
+    let userFros = [];
+    for (let i = 0; i < relationfs.length; i++) {
+        userFros.push(findByUserId(relationfs[i],users));
+    }
+    res.send(userFros)
 
 };
 /**
@@ -183,21 +189,47 @@ exports._listFollowers = function(userId) {
  */
 exports._nonFollowers = function(userId) {
     let allRelatedUsers = R.union(exports._listFollowing(userId),exports._listFollowers(userId));
-    allRelatedUsers.push(parseInt(userId))
+    allRelatedUsers.push(parseInt(userId));
     let usersId =R.map((o) => o.id,users);
     return R.without(allRelatedUsers, usersId);;
 };
 
+/**
+ * Get user info by id
+ */
+exports.getUserById = function (req, res) {
+    let user = exports._getUserById(req.params.userId);
+    res.status(200).send(user);
+};
 
-// /**
-//  * Sign up new user
-//  */
-// exports._searchUser = function(searchText) {
-//
-//     const searchUsername = (searchText)=> R.propEq('username', username)
-//
-//     let userId = R.forEach()
-//
-//     return relations;
-//
-// };
+exports._getUserById = function (userId) {
+    return findByUserId(parseInt(userId), users);
+};
+
+/**
+ * Follow a user
+ */
+exports._followUser = function (userId, followUserId) {
+    const newRelation ={
+        id: userRelations.length + 1,
+        user_id: parseInt(userId),
+        related_user_id: parseInt(followUserId),
+        relation_type: 2
+    };
+    userRelations = addToUsers(newRelation ,userRelations);
+    return userRelations;
+};
+
+/**
+ * Add comment
+ */
+exports.followUser = function(req, res) {
+
+    if (!req.params.userId) {
+        return res.status(400).send({
+            message: 'No user to follow!'
+        });
+    }
+    exports._followUser (req.body.userId ,req.params.userId);
+    res.status(200).send();
+};

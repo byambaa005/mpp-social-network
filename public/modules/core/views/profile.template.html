@@ -37,20 +37,21 @@
                                 <img src="../../../images/avatars/male.png" alt="User name"
                                      class="rounded-circle img-user">
                             </a>
-                            <h3 style="margin-top:10px;"><a href="#" title="Profile">{{curUser.username}}</a></h3>
-                            <p><i>2h</i></p>
+                            <h3 style="margin-top:10px;"><a href="#" title="Profile" data-ng-init="getUserById(post)">{{post.user.username}}</a></h3>
+                            <p><i>{{post.created_date | date : "fullDate"}}</i></p>
                         </div>
-                        <div class="col-sm-8 col-sm-offset-1 data-post" data-ng-init="getPostInteractions(post.id)">
+                        <div class="col-sm-9 col-sm-offset-1 data-post" data-ng-init="getPostReactionStats(post)">
+                            <!--<div class="col-sm-8 col-sm-offset-1 data-post">-->
                             <p>{{post.content}}</p>
                             <div class="reaction">
-                                <span class="like-icon" data-ng-init=""><i class="fas fa-thumbs-up"></i></span> {{likesCount}}
-                                <span class="dislike-icon"><i class="fas fa-thumbs-down"></i></span> {{dislikesCount}}
+                                <span style="cursor: pointer" class="like-icon" data-ng-click="likePost(post)"><i class="fas fa-thumbs-up"></i></span> {{post.likesCount}}
+                                <!--<span style="cursor: pointer" class="dislike-icon" data-ng-click="dislikePost(post)"><i class="fas fa-thumbs-down"></i></span> {{post.dislikesCount}}-->
                             </div>
-                            <div class="comments">
-                                <div class="more-comments">View more comments</div>
+                            <div class="comments" data-ng-init="getPostComments(post)">
+                                <!--<div class="more-comments">View more comments</div>-->
                                 <ul>
-                                    <li data-ng-repeat="comment in comments">
-                                        <b>{{curUser.username}}:</b> {{comment.comment}}
+                                    <li data-ng-repeat="comment in post.comments">
+                                        <b>{{curUser.username}}:</b> {{comment.content}}
                                     </li>
                                 </ul>
                                 <form>
@@ -65,9 +66,9 @@
             </div>
 
             <!--right sidebar-->
-            <div class="col-md-4" data-ng-init="getUserProfiles()">
+            <div class="col-md-4" data-ng-init="getUserProfiles();getFollowerProfiles()">
                 <div class="profiles">
-                    <h2>Friends list</h2>
+                    <h2>Following list</h2>
                     <div class="profile-block" data-ng-repeat="user in users">
                         <div class="row">
                             <div class="col-md-4 text-center">
@@ -80,6 +81,24 @@
                             </div>
                             <div class="col-md-8">
                                 <h3 style="margin-top:10px;font-size:12px;margin-bottom:10px;"><a href="#" title="Profile">{{user.firstname}} {{user.lastname}}</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profiles">
+                    <h2>Follower list</h2>
+                    <div class="profile-block" data-ng-repeat="follower in followers">
+                        <div class="row">
+                            <div class="col-md-4 text-center">
+                                <a href="#" title="Profile">
+                                    <img data-ng-if="follower.gender === 'male'" src="../../../images/avatars/male.png" alt="User name"
+                                         class="rounded-circle img-user">
+                                    <img data-ng-if="follower.gender === 'female'" src="../../../images/avatars/female.png" alt="User name"
+                                         class="rounded-circle img-user">
+                                </a>
+                            </div>
+                            <div class="col-md-8">
+                                <h3 style="margin-top:10px;font-size:12px;margin-bottom:10px;"><a href="#" title="Profile">{{follower.firstname}} {{follower.lastname}}</a></h3>
                             </div>
                         </div>
                     </div>
