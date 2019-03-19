@@ -110,3 +110,11 @@ exports._listFriends = function(userId) {
     return relations;
 
 };
+
+
+/**
+ * List of users
+ */
+exports.list = function(req, res) {
+    res.send(users);
+};

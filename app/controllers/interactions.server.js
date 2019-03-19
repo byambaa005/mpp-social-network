@@ -84,8 +84,6 @@ exports._createComment = function (commentContent,userId, postId) {
  */
 exports.createComment = function(req, res) {
 
-    console.log(req.body);
-
     if (!req.body) {
         return res.status(400).send({
             message: 'Comment cannot be empty!'
