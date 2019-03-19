@@ -28,6 +28,10 @@ exports.comments = function(req, res) {
     res.send(cs);
 };
 
+exports.getComments = () => {
+    return comments;
+}
+
 exports.filterByPostId = filterByPostId;
 
 
