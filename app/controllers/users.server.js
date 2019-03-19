@@ -184,12 +184,14 @@ exports._nonFollowers = function(userId) {
     return R.without(allRelatedUsers, usersId);
 };
 /**
- * Sign up new user
+ * searchText by User
  */
 exports._searchUser = function(searchText) {
     let searchUserId = [];
     for (let i = 0; i < users.length ; i++) {
-        if(R.contains(searchText,users[i].username) ||R.contains(searchText,users[i].firstname) || R.contains(searchText,users[i].lastname)){
+        if(R.contains(R.toLower(searchText),R.toLower(users[i].username))
+            ||R.contains(R.toLower(searchText),R.toLower(users[i].firstname))
+            || R.contains(R.toLower(searchText),R.toLower(users[i].lastname))){
             searchUserId.push(users[i]);
         }
     }
@@ -233,4 +235,16 @@ exports.followUser = function(req, res) {
     }
     exports._followUser (req.body.userId ,req.params.userId);
     res.status(200).send();
+};
+/**
+ * search
+ */
+exports.searchUser = function(req, res) {
+
+    if (!req.params.searchText) {
+        return res.status(201).send({
+            message: 'Not found'
+        });
+    }
+    res.status(200).send(exports._searchUser(req.params.searchText));
 };

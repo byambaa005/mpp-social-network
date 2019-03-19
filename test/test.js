@@ -83,6 +83,25 @@ it('list user  _listUsersById', function() {
         "username": "Byambaa"
     }]);
 });
+it('search user by searchtext', function() {
+    expect(users._searchUser("anhaa")).to.include.deep.members([ {
+        "id": 3,
+        "username": "Anhaa",
+        "firstname": "Anherdene",
+        "lastname": "Bold",
+        "password": "dGVzdA==",
+        "gender": "male",
+        "created_date": "2019-03-14T18:25:43.511Z"
+    }]);
+});
+it('search post by searchtext', function() {
+    expect(posts._searchPost("In computer science, functional programming")).to.include.deep.members([ {
+        "id": 1,
+        "content": "In computer science, functional programming is a programming paradigm—a style of building the structure and elements of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data.",
+        "created_date": "2019-03-14T18:25:43.511Z",
+        "user_id": 1
+    }]);
+});
 
 it('list friends post', function() {
     expect(posts._listFriendPost(1)).to.include.deep.members([{

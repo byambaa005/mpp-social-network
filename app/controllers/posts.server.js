@@ -74,9 +74,26 @@ exports._listFriendPost = function (userId) {
     return R.flatten(userFros);
 };
 
-
-// exports._searcbPost = function (saerch) {
-//
-//     return R.flatten(userFros);
-// };
-
+/**
+ * searchText by User
+ */
+exports._searchPost = function(searchText) {
+    let searchPostId = [];
+    for (let i = 0; i < posts.length ; i++) {
+        if(R.contains(R.toLower(searchText),R.toLower(posts[i].content))){
+            searchPostId.push(posts[i]);
+        }
+    }
+    return searchPostId;
+};
+/**
+ * search
+ */
+exports.searchPost = function(req, res) {
+    if (!req.params.searchText) {
+        return res.status(201).send({
+            message: 'Not found'
+        });
+    }
+    res.status(200).send(exports._searchPost(req.params.searchText));
+};
