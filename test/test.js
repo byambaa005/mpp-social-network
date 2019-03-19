@@ -18,7 +18,7 @@ it('create comment', function() {
         "id": 1,
         "post_id": 1,
         "user_id": 1,
-        "comment": "That is very insightful!",
+        "comment": "That is very insightfull!",
         "created_date": "2019-03-14T19:25:43.511Z"
     }]);
 });
