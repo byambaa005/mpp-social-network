@@ -50,6 +50,6 @@ exports.create = function (req, res) {
             message: 'Post cannot be empty!'
         });
     }
-    exports._createPost (req.body,3)
+    exports._createPost (req.body.content, req.body.userId);
     res.status(200).send();
 };

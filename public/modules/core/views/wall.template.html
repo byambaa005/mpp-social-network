@@ -53,7 +53,7 @@
 								<b>{{curUser.username}}:</b> {{comment.comment}}</li>
 						</ul>
 						<form>
-							<input type="text" class="form-control" placeholder="Add a comment" ng-keyup="$event.keyCode == 13 ? addComment() : null">
+							<input type="text" class="form-control" placeholder="Add a comment" ng-model="curComment" ng-keyup="$event.keyCode == 13 ? addComment(post.id, curUser.id) : null">
 						</form>
 					</div>
 				</div>

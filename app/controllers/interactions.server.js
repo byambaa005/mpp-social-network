@@ -22,6 +22,34 @@ const filterByPostId =(id,data) => R.filter(eqByPostId(id),data);
 exports.comments = function(req, res) {
     const cs = filterByPostId(parseInt(req.params.postId),comments );
     res.send(cs);
-}
+};
 
 exports.filterByPostId = filterByPostId;
+
+
+exports._createComment = function (postContent,userId) {
+    let curDate = new Date();
+    const newPost ={
+        id: posts.length + 1,
+        content:postContent,
+        created_date: curDate.toJSON(),
+        user_id: parseInt(userId)
+    };
+    posts = addToPost(newPost,posts);
+    return posts;
+};
+
+/**
+ * Add comment
+ */
+exports.createComment = function(req, res) {
+
+    if (!req.body) {
+        return res.status(400).send({
+            message: 'Comment cannot be empty!'
+        });
+    }
+    exports._createComment (req.body,3);
+    res.status(200).send();
+};
+
