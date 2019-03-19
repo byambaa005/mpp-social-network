@@ -1,6 +1,7 @@
 const R = require('ramda');
 const fs = require('fs');
 
+let usersServer = require('users.server');
 let rawData = fs.readFileSync('./dist/data.json');
 let dummyData = JSON.parse(rawData);
 let posts = dummyData['posts'];
@@ -52,4 +53,9 @@ exports.create = function (req, res) {
     }
     exports._createPost (req.body.content, req.body.userId);
     res.status(200).send();
+};
+
+exports._listFriendPost = function (userId) {
+    // let rel
+    return userId;
 };

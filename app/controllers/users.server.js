@@ -130,10 +130,10 @@ exports._signup = function(userRaw) {
  */
 exports.listFriends = function(req, res) {
 
-    let relationfs =exports._listFriends(parseInt(req.body.userId));
+    let relationfs =exports._listFriends(parseInt(req.param.userId));
     let userFros = [];
-    for (let i = 0; i < relationfs.length; i++) {
-        userFros.push(findByUserId(i,users));
+    for (let i = 0; i < relationfs.length-1; i++) {
+        userFros.push(findByUserId(relationfs[i],users));
     }
     console.log(userFros);
     res.send(userFros)
