@@ -13,9 +13,10 @@ const eqByUserEmail = (email)=> R.propEq('email', email);
 const findByUsername = (username,data)=> R.find(eqByUsername(username),data);
 // find by username
 const findByUserEmail = (email,data)=> R.find(eqByUserEmail(email),data);
-
 // adding post to posts function
 const addToUsers = (user ,users) =>R.append(user ,users);
+// password encryption function
+const encPass = (password) =>Buffer.from(password).toString('ascii');
 /**
  * Login user
  */
@@ -25,12 +26,10 @@ exports.auth = function(req, res) {
             message: "Username or password empty!"
         })
     }
-
     //finding user by username
     let curUser = findByUsername(req.body.username,users);
-
     if (curUser) {
-        let password = Buffer.from(req.body.password).toString('ascii');
+        let password = encPass(req.body.password);
         if (password === req.body.password) {
             return res.status(200).send({
                 id: curUser.id,
@@ -48,46 +47,35 @@ exports.auth = function(req, res) {
     }
 };
 
-
-
-
 /**
  * Sign up new user
  */
 exports.signup = function(req, res) {
-
-    console.log(req.body);
-
     if (!req.body) {
         return res.status(400).send({
             message: "User data incomplete!"
         })
     }
-
     if (findByUsername(req.body.username ,users)) {
         return res.status(400).send({
             message: 'Choose a different username!'
         });
     }
-
     if (findByUserEmail(req.body.email ,users)) {
         return res.status(400).send({
             message: 'User with a same email address exists!'
         });
     }
-    let u =exports._signup(req.body)
+    exports._signup(req.body);
     res.status(200).send({
         message: 'User is successfully signed up.'
     });
-
 };
 
 /**
  * Sign up new user
  */
 exports._signup = function(userRaw) {
-
-    console.log(userRaw);
     let curDate = new Date();
     const newUser = {
         id: users.length + 1,
