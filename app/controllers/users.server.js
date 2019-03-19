@@ -3,9 +3,12 @@ const fs = require('fs');
 
 let rawData = fs.readFileSync('./dist/data.json');
 let dummyData = JSON.parse(rawData);
+let users = dummyData['users'];
 
-const users = dummyData['users'];
-
+// equals username function
+const eqByUsername = (username)=> R.propEq('username', username)
+// find by username
+const findByUsername = (username,data)=> R.find(eqByUsername(username),data);
 /**
  * List of Posts
  */
@@ -17,12 +20,13 @@ exports.auth = function(req, res) {
     }
 
     //finding user by username
-    let curUser = R.find(R.propEq('username', req.body.username))(users);
+    let curUser = findByUsername(req.body.username,users);
 
     if (curUser) {
         let password = Buffer.from(req.body.password).toString('ascii');
         if (password === req.body.password) {
             return res.status(200).send({
+                id: curUser.id,
                 message: 'User is logged in.'
             })
         } else {
@@ -30,5 +34,9 @@ exports.auth = function(req, res) {
                 message: 'Username or password incorrect!'
             });
         }
+    } else {
+        return res.status(400).send({
+            message: 'User not found!'
+        });
     }
 };

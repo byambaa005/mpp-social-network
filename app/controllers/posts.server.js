@@ -4,28 +4,22 @@ const fs = require('fs');
 
 let rawData = fs.readFileSync('./dist/data.json');
 let dummyData = JSON.parse(rawData);
+let posts = dummyData['posts'];
 
-const posts = dummyData['posts'];
+// adding post to posts function
+const addToPost = (post,posts) =>R.append(post,posts);
 
-// func user_id
+// equlas to user_id
 const eqByUserId = (id)=>  R.propEq('user_id', id);
 
-//
-
-const filterUserId =(id,data) => R.filter(eqByUserId(id),data)
+// filtering by user id function
+const filterUserId =(id,data) => R.filter(eqByUserId(id),data);
 
 /**
  * List of Posts
  */
 exports.list = function(req, res) {
-
-    const qs = filterUserId(req.userId,posts);
-    // const qs = posts.map(q => ({
-    //     id: q.id,
-    //     content: q.content,
-    //     created_date: q.created_date,
-    //     user_id: q.user_id
-    // }));
+    const qs = filterUserId(parseInt(req.params.userId) ,posts);
     res.send(qs);
 };
 
@@ -41,12 +35,12 @@ exports.create = function (req, res) {
     }
     let curDate = new Date();
     const {content} = req.body;
-    const newPost = {
+    const newPost ={
         id: posts.length + 1,
         content,
         created_date: curDate.toJSON(),
         user_id: 1
     };
-    posts.push(newPost);
+    posts = addToPost(newPost,posts);
     res.status(200).send();
 };
