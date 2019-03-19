@@ -1,36 +1,30 @@
 <div ng-show="error" class="alert alert-danger">{{error}}</div>
 
-
 <div class="center">
-    <div class="card">
-        <h1>Login</h1>
+    <div class="form-box" style="height: 300px;">
+        <div class="form-logo">
+            <h1 style="text-align: center">Log in</h1>
+        </div>
         <form name="form" ng-submit="login()" role="form">
-            <input
-                    class="form-item"
-                    placeholder="Username goes here..."
-                    id="username"
-                    name="username"
-                    type="text"
-                    ng-model="username"
-                    required
-            />
+            <input type="text"
+                   name="username"
+                   ng-model="username"
+                   class="form-control"
+                   placeholder="Username" required>
             <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
-            <input
-                    class="form-item"
-                    placeholder="Password goes here..."
-                    name="password"
-                    type="password"
-                    id="password"
-                    ng-model="password"
-                    required
-            />
+
+            <input type="password"
+                   name="password"
+                   ng-model="password"
+                   class="form-control"
+                   placeholder="Password" required>
+
             <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
-            <input
-                    ng-disabled="form.$invalid || dataLoading"
-                    class="form-submit"
-                    value="Login"
-                    type="submit"
-            />
+
+            <input type="submit" class="btn btn-social" value="LOGIN">
         </form>
+        <a href="/#!/signup" class="login-action" title="Sign up">
+            <p>New User?</p>
+        </a>
     </div>
 </div>

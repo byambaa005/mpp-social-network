@@ -50,3 +50,12 @@
 .form-submit:hover{
     opacity: 0.6;
 }
+
+.sign-up {
+    text-align: center;
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 2.2rem;
+}

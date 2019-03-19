@@ -3,8 +3,8 @@
 angular.module('auth')
 
     .factory('AuthenticationService',
-        ['Base64', '$http', '$cookies', '$rootScope', '$timeout', '$window',
-            function (Base64, $http, $cookies, $rootScope, $timeout, $window) {
+        ['Base64', '$http', '$cookies', '$rootScope', '$timeout', '$window', '$location',
+            function (Base64, $http, $cookies, $rootScope, $timeout, $window, $location) {
                 let service = {};
 
                 service.Login = function (username, password, callback) {
@@ -53,6 +53,7 @@ angular.module('auth')
                     // $cookies.remove('globals');
                     $window.localStorage.removeItem('user');
                     $http.defaults.headers.common.Authorization = 'Basic ';
+                    $location.path('/login');
                 };
 
                 return service;

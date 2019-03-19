@@ -3,10 +3,14 @@
 here you can change #f3ad00 main color.
 -----------------------------------------------------------------*/
 .btn-social, .badge, .btn-social, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary,
-.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary,
-::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:window-inactive {
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary
+ {
     background: #f3ad00;
 }
+::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:window-inactive {
+    background: #3b5998;
+}
+
 
 .btn-social {
     border: #f3ad00;
@@ -95,7 +99,7 @@ video, img {
 
 header {
     min-height: 50px;
-    background: #4F5467;
+    background: #3b5998;
     font-size: 14px;
     padding: 15px 130px 10px 370px;
     position: fixed;
@@ -375,9 +379,9 @@ textarea.post-textarea {
     padding: 15px;
     color: #ffffff;
     position: relative;
-    top: 50%;
+    /*top: 50%;*/
     margin: auto;
-    margin-top: -185px;
+    /*margin-top: -185px;*/
     background: rgba(0, 0, 0, 0.75);
 }
 

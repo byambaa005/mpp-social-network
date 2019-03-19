@@ -13,5 +13,12 @@ angular.module('auth').config(['$stateProvider', '$urlRouterProvider',
 			controller: 'LoginController',
 			templateUrl: 'modules/auth/views/login.template.html'
 		});
+
+		$stateProvider.
+		state('signUp', {
+			url: '/signup',
+			controller: 'LoginController',
+			templateUrl: 'modules/auth/views/signup.template.html'
+		});
 	}
 ]);
