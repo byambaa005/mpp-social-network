@@ -139,11 +139,9 @@ exports.listFriends = function(req, res) {
  */
 exports._listUsersById = (userIds) => {
     let userFros = [];
-    console.log(userIds[0])
     for (let i = 0; i < userIds.length; i++) {
         userFros.push(findByUserId(userIds[i],users));
     }
-    console.log(userFros)
     return userFros;
 
 };
