@@ -34,14 +34,15 @@ angular.module('auth')
 
                 };
 
-                service.SetCredentials = function (userId, username, password) {
+                service.SetCredentials = function (userId, username, password, img) {
                     let authdata = Base64.encode(userId + ':' + username + ':' + password);
 
                     $rootScope.globals = {
                         currentUser: {
                             id: userId,
                             username: username,
-                            authdata: authdata
+                            authdata: authdata,
+                            img: img
                         }
                     };
                     $window.localStorage.setItem('user', JSON.stringify($rootScope.globals));

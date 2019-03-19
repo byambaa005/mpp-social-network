@@ -14,9 +14,19 @@ angular.module('auth')
 
                         let userData = response.data;
 
+
+
+
                         if(response.status ===  200) {
-                            AuthenticationService.SetCredentials(userData.id ,$scope.username, $scope.password);
-                            $location.path('/');
+                            $http.get('/api/user/' + userData.id)
+                                .then(function(response) {
+                                    console.log(response.data);
+                                    AuthenticationService.SetCredentials(userData.id ,$scope.username, $scope.password, response.data.img);
+                                    $location.path('/');
+                                })
+                                .catch(function(data) {
+                                    console.log('Error: ' + data);
+                                });
                         } else {
                             $scope.error = response.data.message;
                             $scope.dataLoading = false;

@@ -5,7 +5,7 @@
 <!--Left Sidebar with info Profile -->
 <div class="sidebar-nav">
 	<a href="#!/profile/{{curUser.id}}" title="Profile">
-		<img src="../../../images/avatars/male.jpg" alt="User name" class="rounded-circle img-user">
+		<img src="../../../images/avatars/{{curUser.img}}" alt="User name" class="rounded-circle img-user">
 	</a>
 	<h2 class="text-center hidden-xs profile-name"><a href="#!/profile/{{curUser.id}}" title="Profile">{{curUser.username}}</a></h2>
 	<p class="text-center user-description hidden-xs">
@@ -40,7 +40,7 @@
                     <div class="row">
                         <div class="col-xs-3 col-sm-2 text-center">
                             <a href="#!/profile/{{post.user_id}}" title="Profile">
-                                <img src="../../../images/avatars/male.jpg" alt="User name"
+                                <img src="../../../images/avatars/{{post.user.img}}" alt="User name"
                                      class="rounded-circle img-user">
                             </a>
                             <h3 style="margin-top:10px;"><a href="#!/profile/{{post.user_id}}" title="Profile" data-ng-init="getUserById(post)">{{post.user.username}}</a></h3>

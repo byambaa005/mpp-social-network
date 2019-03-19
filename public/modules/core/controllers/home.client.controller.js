@@ -7,12 +7,10 @@ angular.module('core').controller('HomeController', ['$scope', '$http', '$cookie
 		$scope.curUser = JSON.parse($window.localStorage.getItem('user')).currentUser;
 		console.log($scope.curUser);
 
-
 		$scope.getUserById = function (post) {
 			$http.get('/api/user/' + post.user_id)
 				.then(function(response) {
 					post.user = response.data;
-					console.log(post.user);
 				})
 				.catch(function(data) {
 					console.log('Error: ' + data);
