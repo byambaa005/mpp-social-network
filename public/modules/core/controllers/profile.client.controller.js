@@ -5,7 +5,6 @@ angular.module('core').controller('ProfileController', ['$scope', '$http', '$coo
         // This provides Authentication context.
 
         $scope.curUser = JSON.parse($window.localStorage.getItem('user')).currentUser;
-        console.log($scope.curUser);
 
         $scope.getUserById = function (post) {
             $http.get('/api/user/' + post.user_id)

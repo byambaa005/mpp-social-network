@@ -172,7 +172,6 @@ exports._listFollowing = function(userId) {
 exports._listFollowers = function(userId) {
     let relations =R.map((o) => o.related_user_id,filterFollowerUserId(filterUserId(userId,userRelations)));
     return relations;
-
 };
 
 /**
@@ -182,7 +181,7 @@ exports._nonFollowers = function(userId) {
     let allRelatedUsers = R.union(exports._listFollowing(userId),exports._listFollowers(userId));
     allRelatedUsers.push(parseInt(userId));
     let usersId =R.map((o) => o.id,users);
-    return R.without(allRelatedUsers, usersId);;
+    return R.without(allRelatedUsers, usersId);
 };
 
 /**
