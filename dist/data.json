@@ -203,43 +203,43 @@
     },
     {
       "id": 4,
-      "content": "Functional programming continues to be used in commercial settings.",
+      "content": "Purely functional programming consists in ensuring that functions, inside the functional paradigm, will only depend on their arguments, regardless of any global or local state.",
       "created_date": "2019-03-16T18:55:43.511Z",
       "user_id": 3
     },
     {
       "id": 5,
-      "content": "Functional programming continues to be used in commercial settings.",
+      "content": "Each evaluation strategy which ends on a purely functional programs returns the same result.",
       "created_date": "2019-03-16T18:55:43.511Z",
       "user_id": 3
     },
     {
       "id": 6,
-      "content": "Functional programming continues to be used in commercial settings.",
+      "content": "Parallel computing is Purely functional programming simplifies parallel computing[5] since two purely functional parts of the evaluation never interact.",
       "created_date": "2019-03-16T18:55:43.511Z",
       "user_id": 3
     },
     {
       "id": 7,
-      "content": "Functional programming continues to be used in commercial settings.",
+      "content": "Arrays can be replaced by map or random access list, which admits purely functional implementation, but the access and update time is logarithmic.",
       "created_date": "2019-03-16T18:55:43.511Z",
       "user_id": 3
     },
     {
       "id": 8,
-      "content": "Functional programming continues to be used in commercial settings.",
+      "content": "Programming in a functional style can also be accomplished in languages that are not specifically designed for functional programming.",
       "created_date": "2019-03-16T18:55:43.511Z",
       "user_id": 3
     },
     {
       "id": 9,
-      "content": "Functional programming continues to be used in commercial settings.",
+      "content": "The 1973 language ML was created by Robin Milner at the University of Edinburgh, and David Turner developed the language SASL at the University of St Andrews.",
       "created_date": "2019-03-16T18:55:43.511Z",
       "user_id": 3
     },
     {
       "id": 10,
-      "content": "Functional programming continues to be used in commercial settings.",
+      "content": "Meanwhile, the development of Scheme, a simple lexically scoped and (impurely) functional dialect of Lisp, as described in the influential Lambda Papers and the classic 1985 textbook Structure and Interpretation of Computer Programs, brought awareness of the power of functional programming to the wider programming-languages community.",
       "created_date": "2019-03-16T18:55:43.511Z",
       "user_id": 3
     }
