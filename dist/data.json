@@ -211,19 +211,19 @@
       "id": 5,
       "content": "Each evaluation strategy which ends on a purely functional programs returns the same result.",
       "created_date": "2019-03-16T18:55:43.511Z",
-      "user_id": 3
+      "user_id": 2
     },
     {
       "id": 6,
       "content": "Parallel computing is Purely functional programming simplifies parallel computing[5] since two purely functional parts of the evaluation never interact.",
       "created_date": "2019-03-16T18:55:43.511Z",
-      "user_id": 3
+      "user_id": 2
     },
     {
       "id": 7,
       "content": "Arrays can be replaced by map or random access list, which admits purely functional implementation, but the access and update time is logarithmic.",
       "created_date": "2019-03-16T18:55:43.511Z",
-      "user_id": 3
+      "user_id": 2
     },
     {
       "id": 8,
