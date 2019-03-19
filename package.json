@@ -1,9 +1,9 @@
 {
-  "name": "node-todo",
+  "name": "mpp-social-network",
   "version": "0.0.0",
-  "description": "Simple todo application.",
+  "description": "Functional nodejs social network.",
   "main": "server.js",
-  "author": "Scotch",
+  "author": "MPP group 3",
   "dependencies": {
     "@uirouter/angularjs": "^1.0.22",
     "angular": "1.7.x",
@@ -29,6 +29,7 @@
     "superagent": "^4.1.0"
   },
   "scripts": {
+    "start": "node server.js",
     "postinstall": "npm run copy-libs",
     "postupdate-deps": "npm run copy-libs",
     "copy-libs": "cpx \"node_modules/{angular,angular-*,@uirouter,bootstrap/dist,jquery/dist}/**/*\" public/library -C"
