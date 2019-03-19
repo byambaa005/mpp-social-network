@@ -5,7 +5,7 @@ let app      = express(); 								// create our app w/ express
 let port  	 = process.env.PORT || 4000; 				// set the port
 // var database = require('./config/database'); 			// load the database config
 
-let morgan = require('morgan'); 		// log requests to the console (express4)
+// let morgan = require('morgan'); 		// log requests to the console (express4)
 let bodyParser = require('body-parser'); 	// pull information from HTML POST (express4)
 let methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 
