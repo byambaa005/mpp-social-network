@@ -7,7 +7,6 @@ angular.module('core').controller('HomeController', ['$scope', '$http', '$cookie
 		$scope.curUser = JSON.parse($window.localStorage.getItem('user')).currentUser;
 		console.log($scope.curUser);
 
-		$scope.formData = {content: '', userId: $scope.curUser.id};
 
 		// when landing on the page, get all posts and show them
 		$scope.getPosts = function() {
@@ -21,20 +20,20 @@ angular.module('core').controller('HomeController', ['$scope', '$http', '$cookie
 		};
 
 		// get post reactions
-		$scope.getPostReactions = function() {
-			$http.get('/api/posts')
+		$scope.getPostInteractions = function(postId) {
+			$http.get('/api/interactions/' + postId)
 				.then(function(response) {
-					$scope.posts = response.data;
+					$scope.comments = response.data.comments || 0;
+					$scope.likesCount = response.data.likesCount || 0;
+					$scope.dislikesCount = response.data.dislikesCount || 0;
 				})
 				.catch(function(data) {
 					console.log('Error: ' + data);
 				});
 		};
 
-
-		// get post reactions
+		// get post comments
 		$scope.getPostComments = function(postId) {
-			console.log(postId);
 			$http.get('/api/comments/' + postId)
 				.then(function(response) {
 					$scope.comments = response.data;
@@ -46,7 +45,27 @@ angular.module('core').controller('HomeController', ['$scope', '$http', '$cookie
 		};
 
 		// when submitting the add form, send the text to the node API
+		$scope.formData = {content: '', userId: $scope.curUser.id};
+
 		$scope.addPost = function() {
+			if ($scope.formData.content === '') {
+				alert("Empty input!");
+			} else {
+				$http.post('/api/posts', $scope.formData)
+					.then(function(response) {
+						$scope.formData = {content: '', userId: $scope.curUser.id}; // clear the form so our user is ready to enter another
+						$scope.getPosts();
+						console.log(response);
+					})
+					.catch(function(error) {
+						console.log('Error: ' + error);
+						alert(error);
+					});
+			}
+		};
+
+		// when submitting the add form, send the text to the node API
+		$scope.addComment = function(postId, userId) {
 			if ($scope.formData.content === '') {
 				alert("Empty input!");
 			} else {

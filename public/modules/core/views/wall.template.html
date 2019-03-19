@@ -5,16 +5,16 @@
 <!--Left Sidebar with info Profile -->
 <div class="sidebar-nav">
 	<a href="#" title="Profile">
-		<img src="../../../images/stock_user.jpg" alt="User name" class="rounded-circle img-user">
+		<img src="../../../images/avatars/male.png" alt="User name" class="rounded-circle img-user">
 	</a>
-	<h2 class="text-center hidden-xs"><a href="#" title="Profile">My User</a></h2>
+	<h2 class="text-center hidden-xs"><a href="#" title="Profile">{{curUser.username}}</a></h2>
 	<p class="text-center user-description hidden-xs">
 		<i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</i>
 	</p>
 </div>
 
 <!--Wall with Post -->
-<div class="content-posts active col-md-8" id="posts">
+<div class="content-posts active col-md-9" id="posts">
 	<div id="posts-container" class="container-fluid container-posts" data-ng-init="getPosts()">
 
 		<div id="todo-form" class="row" style="padding:15px;">
@@ -36,24 +36,24 @@
 			<div class="row">
 				<div class="col-xs-3 col-sm-2 text-center">
 					<a href="#" title="Profile">
-						<img src="../../../images/stock_user.jpg" alt="User name" class="rounded-circle img-user">
+						<img src="../../../images/avatars/male.png" alt="User name" class="rounded-circle img-user">
 					</a>
-					<h3 style="margin-top:10px;"><a href="#" title="Profile">My User</a></h3>
+					<h3 style="margin-top:10px;"><a href="#" title="Profile">{{curUser.username}}</a></h3>
 					<p><i>2h</i></p>
 				</div>
-				<div class="col-sm-8 col-sm-offset-1 data-post">
+				<div class="col-sm-8 col-sm-offset-1 data-post" data-ng-init="getPostInteractions(post.id)">
 					<p>{{post.content}}</p>
 					<div class="reaction">
-						<span class="like-icon"><i class="fas fa-thumbs-up"></i></span> 156 <span class="dislike-icon"><i class="fas fa-thumbs-down"></i></span> 54
+						<span class="like-icon"><i class="fas fa-thumbs-up"></i></span> {{likesCount}} <span class="dislike-icon"><i class="fas fa-thumbs-down"></i></span> {{dislikesCount}}
 					</div>
-					<div class="comments" data-ng-init="getPostComments(post.id)">
+					<div class="comments">
 						<div class="more-comments">View more comments</div>
 						<ul>
 							<li data-ng-repeat="comment in comments">
 								<b>{{curUser.username}}:</b> {{comment.comment}}</li>
 						</ul>
 						<form>
-							<input type="text" class="form-control" placeholder="Add a comment">
+							<input type="text" class="form-control" placeholder="Add a comment" ng-keyup="$event.keyCode == 13 ? addComment() : null">
 						</form>
 					</div>
 				</div>

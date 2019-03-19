@@ -16,7 +16,7 @@ module.exports = function (app) {
     app.route('/api/posts/:userId')
         .get(posts.list);
 
-    app.route('/api/comments/:postId')
+    app.route('/api/interactions/:postId')
         .get(interactions.comments);
 
     app.route('/api/posts')

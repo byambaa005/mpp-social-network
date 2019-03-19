@@ -8,7 +8,7 @@ let comments = dummyData['post_comments'];
 // func user_id
 const eqByUserId = (id)=>  R.propEq('user_id', id);
 
-// func user_id
+// func post
 const eqByPostId = (id)=>  R.propEq('post_id', id);
 
 // func user_id
@@ -20,7 +20,6 @@ const filterByPostId =(id,data) => R.filter(eqByPostId(id),data);
  * List of Post comments by post Id
  */
 exports.comments = function(req, res) {
-    res.send(filterByPostId(parseInt(req.post_id),comments ));
+    const cs = filterByPostId(parseInt(req.params.postId),comments );
+    res.send(cs);
 };
-
-exports.filterByPostId = filterByPostId;
