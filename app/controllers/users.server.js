@@ -4,11 +4,19 @@ const fs = require('fs');
 let rawData = fs.readFileSync('./dist/data.json');
 let dummyData = JSON.parse(rawData);
 let users = dummyData['users'];
+let userRelations = dummyData['user_relations'];
+
 
 // equals username function
 const eqByUsername = (username)=> R.propEq('username', username);
 // equals username function
 const eqByUserEmail = (email)=> R.propEq('email', email);
+// equals to user_id
+const eqByUserId = (id)=>  R.propEq('user_id', id);
+// filtering by user id function
+const filterUserId =(id,data) => R.filter(eqByUserId(id),data);
+
+
 // find by username
 const findByUsername = (username,data)=> R.find(eqByUsername(username),data);
 // find by username
@@ -17,6 +25,9 @@ const findByUserEmail = (email,data)=> R.find(eqByUserEmail(email),data);
 const addToUsers = (user ,users) =>R.append(user ,users);
 // password encryption function
 const encPass = (password) =>Buffer.from(password).toString('ascii');
+
+
+
 /**
  * Login user
  */
@@ -85,6 +96,17 @@ exports._signup = function(userRaw) {
         lastname: userRaw.lastname,
         created_date: curDate.toJSON()
     };
+    users = addToUsers(newUser ,users);
+    return users;
+
+};
+
+
+
+/**
+ * Sign up new user
+ */
+exports._listFriends = function(userId) {
     users = addToUsers(newUser ,users);
     return users;
 
