@@ -84,6 +84,60 @@
       "user_id": 1,
       "related_user_id": 3,
       "relation_type": 2
+    },
+    {
+      "id": 2,
+      "user_id": 2,
+      "related_user_id": 4,
+      "relation_type": 3
+    },
+    {
+      "id": 3,
+      "user_id": 3,
+      "related_user_id": 5,
+      "relation_type": 4
+    },
+    {
+      "id": 4,
+      "user_id": 4,
+      "related_user_id": 6,
+      "relation_type": 5
+    },
+    {
+      "id": 5,
+      "user_id": 5,
+      "related_user_id": 7,
+      "relation_type": 6
+    },
+    {
+      "id": 6,
+      "user_id": 6,
+      "related_user_id": 8,
+      "relation_type": 7
+    },
+    {
+      "id": 7,
+      "user_id": 7,
+      "related_user_id": 9,
+      "relation_type": 8
+    },
+    {
+      "id": 8,
+      "user_id": 8,
+      "related_user_id": 10,
+      "relation_type": 9
+    },
+    {
+      "id": 9,
+      "user_id": 9,
+      "related_user_id": 1,
+      "relation_type": 10
+    },
+    {
+      "id": 10,
+      "user_id": 10,
+      "related_user_id": 2,
+      "relation_type": 1
     }
   ],
   "relation_types": [
@@ -94,6 +148,38 @@
     {
       "id": 2,
       "type": "follower"
+    },
+    {
+      "id": 3,
+      "type": "follower"
+    },
+    {
+      "id": 4,
+      "type": "friends"
+    },
+    {
+      "id": 5,
+      "type": "follower"
+    },
+    {
+      "id": 6,
+      "type": "follower"
+    },
+    {
+      "id": 7,
+      "type": "friends"
+    },
+    {
+      "id": 8,
+      "type": "follower"
+    },
+    {
+      "id": 9,
+      "type": "follower"
+    },
+    {
+      "id": 10,
+      "type": "friends"
     }
   ],
   "posts": [
