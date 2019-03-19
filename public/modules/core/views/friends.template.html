@@ -4,10 +4,10 @@
 
 <!--Left Sidebar with info Profile -->
 <div class="sidebar-nav">
-    <a href="#" title="Profile">
-        <img src="../../../images/avatars/male.png" alt="User name" class="rounded-circle img-user">
+    <a href="#!/profile/{{curUser.id}}" title="Profile">
+        <img src="../../../images/avatars/male.jpg" alt="User name" class="rounded-circle img-user">
     </a>
-    <h2 class="text-center hidden-xs profile-name"><a href="#!/profile" title="Profile">{{curUser.username}}</a></h2>
+    <h2 class="text-center hidden-xs profile-name"><a href="#!/profile/{{curUser.id}}" title="Profile">{{curUser.username}}</a></h2>
     <p class="text-center user-description hidden-xs">
         <i>Profile description!</i>
     </p>
@@ -27,9 +27,9 @@
                         <div class="row">
                             <div class="col-md-4 text-center">
                                 <a href="#" title="Profile">
-                                    <img data-ng-if="user.gender === 'male'" src="../../../images/avatars/male.png" alt="User name"
+                                    <img data-ng-if="user.gender === 'male'" src="../../../images/avatars/male.jpg" alt="User name"
                                          class="rounded-circle img-user">
-                                    <img data-ng-if="user.gender === 'female'" src="../../../images/avatars/female.png" alt="User name"
+                                    <img data-ng-if="user.gender === 'female'" src="../../../images/avatars/female.jpg" alt="User name"
                                          class="rounded-circle img-user">
                                 </a>
                             </div>
@@ -50,9 +50,9 @@
                         <div class="row">
                             <div class="col-md-4 text-center">
                                 <a href="#" title="Profile">
-                                    <img data-ng-if="user.gender === 'male'" src="../../../images/avatars/male.png" alt="User name"
+                                    <img data-ng-if="user.gender === 'male'" src="../../../images/avatars/male.jpg" alt="User name"
                                          class="rounded-circle img-user">
-                                    <img data-ng-if="user.gender === 'female'" src="../../../images/avatars/female.png" alt="User name"
+                                    <img data-ng-if="user.gender === 'female'" src="../../../images/avatars/female.jpg" alt="User name"
                                          class="rounded-circle img-user">
                                 </a>
                             </div>

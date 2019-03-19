@@ -1,13 +1,15 @@
 'use strict';
 
-angular.module('core').controller('ProfileController', ['$scope', '$http', '$cookies', '$window',
-    function($scope, $http, $cookies, $window) {
+angular.module('core').controller('ProfileController', ['$scope', '$http', '$cookies', '$window', '$stateParams',
+    function($scope, $http, $cookies, $window, $stateParams) {
         // This provides Authentication context.
 
         $scope.curUser = JSON.parse($window.localStorage.getItem('user')).currentUser;
+        // console.log($stateParams.userId);
+        let profId = $stateParams.userId;
 
         $scope.getUserById = function (post) {
-            $http.get('/api/user/' + post.user_id)
+            $http.get('/api/user/' + $stateParams.userId)
                 .then(function(response) {
                     post.user = response.data;
                 })
@@ -18,7 +20,7 @@ angular.module('core').controller('ProfileController', ['$scope', '$http', '$coo
 
         // when landing on the page, get all posts and show them
         $scope.getPosts = function() {
-            $http.get('/api/userPosts/' + $scope.curUser.id)
+            $http.get('/api/userPosts/' + $stateParams.userId)
                 .then(function(response) {
                     $scope.posts = response.data;
                 })
@@ -80,7 +82,7 @@ angular.module('core').controller('ProfileController', ['$scope', '$http', '$coo
         };
 
         // when submitting the add form, send the text to the node API
-        $scope.formData = {content: '', userId: $scope.curUser.id};
+        $scope.formData = {content: '', userId: $stateParams.userId};
 
         $scope.addPost = function() {
             if ($scope.formData.content === '') {

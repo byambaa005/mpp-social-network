@@ -4,10 +4,10 @@
 
 <!--Left Sidebar with info Profile -->
 <div class="sidebar-nav">
-	<a href="#" title="Profile">
-		<img src="../../../images/avatars/male.png" alt="User name" class="rounded-circle img-user">
+	<a href="#!/profile/{{curUser.id}}" title="Profile">
+		<img src="../../../images/avatars/male.jpg" alt="User name" class="rounded-circle img-user">
 	</a>
-	<h2 class="text-center hidden-xs profile-name"><a href="#!/profile" title="Profile">{{curUser.username}}</a></h2>
+	<h2 class="text-center hidden-xs profile-name"><a href="#!/profile/{{curUser.id}}" title="Profile">{{curUser.username}}</a></h2>
 	<p class="text-center user-description hidden-xs">
 		<i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</i>
 	</p>
@@ -39,11 +39,11 @@
                 <div class="card-post" ng-repeat="post in posts | orderBy: '-created_date'">
                     <div class="row">
                         <div class="col-xs-3 col-sm-2 text-center">
-                            <a href="#" title="Profile">
-                                <img src="../../../images/avatars/male.png" alt="User name"
+                            <a href="#!/profile/{{post.user_id}}" title="Profile">
+                                <img src="../../../images/avatars/male.jpg" alt="User name"
                                      class="rounded-circle img-user">
                             </a>
-                            <h3 style="margin-top:10px;"><a href="#" title="Profile" data-ng-init="getUserById(post)">{{post.user.username}}</a></h3>
+                            <h3 style="margin-top:10px;"><a href="#!/profile/{{post.user_id}}" title="Profile" data-ng-init="getUserById(post)">{{post.user.username}}</a></h3>
                             <p><i>{{post.created_date | date : "fullDate"}}</i></p>
                         </div>
                         <div class="col-sm-9 col-sm-offset-1 data-post" data-ng-init="getPostReactionStats(post)">
@@ -78,9 +78,9 @@
                         <div class="row">
                             <div class="col-md-4 text-center">
                                 <a href="#!/profile/{{user.id}}" title="Profile">
-                                    <img data-ng-if="user.gender === 'male'" src="../../../images/avatars/male.png" alt="User name"
+                                    <img data-ng-if="user.gender === 'male'" src="../../../images/avatars/male.jpg" alt="User name"
                                          class="rounded-circle img-user">
-                                    <img data-ng-if="user.gender === 'female'" src="../../../images/avatars/female.png" alt="User name"
+                                    <img data-ng-if="user.gender === 'female'" src="../../../images/avatars/female.jpg" alt="User name"
                                          class="rounded-circle img-user">
                                 </a>
                             </div>
