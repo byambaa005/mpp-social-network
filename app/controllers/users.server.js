@@ -52,6 +52,8 @@ const addToUsers = (user ,users) =>R.append(user ,users);
 const encPass = (password) =>Buffer.from(password).toString('ascii');
 // find by username
 const searchByUser = (user,name)=> R.find(eqByUserEmail(email),data);
+
+
 /**
  * Login user
  */
@@ -125,44 +127,38 @@ exports._signup = function(userRaw) {
 
 };
 
-
 /**
  * Sign up new user
  */
 exports.listFriends = function(req, res) {
-    let relationfs =exports._listFollowing(parseInt(req.params.userId));
-    let userFros = [];
-    for (let i = 0; i < relationfs.length-1; i++) {
-        userFros.push(findByUserId(relationfs[i],users));
-    }
-    res.send(userFros)
-
+    res.send(exports._listUsersById(exports._listFollowing(parseInt(req.params.userId))));
 };
 
 /**
  * Sign up new user
  */
 exports.listFollowers = function(req, res) {
-    let relationfs =exports._listFollowers(parseInt(req.params.userId));
-    let userFros = [];
-    for (let i = 0; i < relationfs.length-1; i++) {
-        userFros.push(findByUserId(relationfs[i],users));
-    }
-    res.send(userFros)
-
+    res.send(exports._listUsersById(exports._listFollowers(parseInt(req.params.userId))));
 };
 
 /**
  * Sign up new user
  */
-exports.nonFollowers = function(req, res) {
-    console.log(req.params);
-    let relationfs =exports._nonFollowers(parseInt(req.params.userId));
+exports._listUsersById = (userIds) => {
     let userFros = [];
-    for (let i = 0; i < relationfs.length-1; i++) {
-        userFros.push(findByUserId(relationfs[i],users));
+    console.log(userIds[0])
+    for (let i = 0; i < userIds.length; i++) {
+        userFros.push(findByUserId(userIds[i],users));
     }
-    res.send(userFros)
+    console.log(userFros)
+    return userFros;
+
+};
+/**
+ * Sign up new user
+ */
+exports.nonFollowers = function(req, res) {
+    res.send(exports._listUsersById(exports._nonFollowers(parseInt(req.params.userId))));
 
 };
 /**
