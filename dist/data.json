@@ -253,13 +253,13 @@
     },
     {
       "id": 2,
-      "content": "Programming in a functional style can also be accomplished in languages that are not specifically designed for functional programming. For example, the imperative Perl programming language has been the subject of a book describing how to apply functional programming concepts.",
+      "content": "The most significant differences stem from the fact that functional programming avoids side effects, which are used in imperative programming to implement state and I/O. Pure functional programming completely prevents side-effects and provides referential transparency.",
       "created_date": "2019-03-15T18:25:43.511Z",
       "user_id": 2
     },
     {
       "id": 3,
-      "content": "Lambda calculus provides a theoretical framework for describing functions and their evaluation. It is a mathematical abstraction rather than a programming language—but it forms the basis of almost all current functional programming languages.",
+      "content": "Functional languages also simulate states by passing around immutable states. This can be done by making a function accept the state as one of its parameters, and return a new state together with the result, leaving the old state unchanged.",
       "created_date": "2019-03-16T18:25:43.511Z",
       "user_id": 2
     },
@@ -271,13 +271,13 @@
     },
     {
       "id": 5,
-      "content": "Each evaluation strategy which ends on a purely functional programs returns the same result.",
+      "content": "Elixir is a functional, concurrent, general-purpose programming language that runs on the Erlang virtual machine (BEAM).",
       "created_date": "2019-03-16T18:55:43.511Z",
       "user_id": 2
     },
     {
       "id": 6,
-      "content": "Parallel computing is Purely functional programming simplifies parallel computing[5] since two purely functional parts of the evaluation never interact.",
+      "content": "Generics are a facility of generic programming that were added to the Java programming language in 2004 within version J2SE 5.0. They were designed to extend Java's type system to allow “a type or method to operate on objects of various types while providing compile-time type safety”.",
       "created_date": "2019-03-16T18:55:43.511Z",
       "user_id": 2
     },
@@ -310,13 +310,13 @@
 
     {
       "id": 1,
-      "content": "In computer science, functional programming is a programming paradigm—a style of building the structure and elements of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data.",
+      "content": "Generics are checked at compile-time for type-correctness. The generic type information is then removed in a process called type erasure. For example, List<Integer> will be converted to the non-generic type List, which ordinarily contains arbitrary objects. The compile-time check guarantees that the resulting code is type-correct.",
       "created_date": "2019-03-14T18:25:43.511Z",
       "user_id": 3
     },
     {
       "id": 2,
-      "content": "Programming in a functional style can also be accomplished in languages that are not specifically designed for functional programming. For example, the imperative Perl programming language has been the subject of a book describing how to apply functional programming concepts.",
+      "content": "A type argument for a parameterized type is not limited to a concrete class or interface. Java allows the use of type wildcards to serve as type arguments for parameterized types. Wildcards are type arguments in the form \"<?>\"; optionally with an upper or lower bound.",
       "created_date": "2019-03-15T18:25:43.511Z",
       "user_id": 3
     },
@@ -334,7 +334,7 @@
     },
     {
       "id": 5,
-      "content": "Each evaluation strategy which ends on a purely functional programs returns the same result.",
+      "content": "Stream processing is a computer programming paradigm, equivalent to dataflow programming, event stream processing, and reactive programming,[1] that allows some applications to more easily exploit a limited form of parallel processing..",
       "created_date": "2019-03-16T18:55:43.511Z",
       "user_id": 3
     },
