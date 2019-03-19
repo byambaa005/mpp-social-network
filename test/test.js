@@ -48,7 +48,12 @@ it('create user', function() {
 it('get likes a post id', function() {
     expect(interactoins.filterByPostId(1,[{id:2, post_id:1}])).to.have.deep.members([{id:2, post_id:1}]);
 });
-
+it('count likes a post id', function() {
+    expect(interactoins.likeByPostId(1,[{id:2, post_id:1, reaction_type:1}])).to.have.deep.members([{id:2, post_id:1}]);
+});
+it('get likes a post id', function() {
+    expect(interactoins.dislikeByPostId(1,[{id:2, post_id:1, reaction_type:2}])).to.have.deep.members([{id:2, post_id:1}]);
+});
 it('list user friends', function() {
     expect(users._listFriends(1)).to.include.deep.members([2,3]);
 });

@@ -66,12 +66,12 @@ exports.listFriendPost = function(req, res) {
 exports._listFriendPost = function (userId) {
     let relationFs = usersServer._listFriends(userId);
     let relationFollowers = usersServer._listFollowers(userId);
-    console.log(relationFollowers);
     let allRelatedUsers = R.union(relationFs,relationFollowers);
-    console.log(allRelatedUsers);
     let userFros = [];
     for (let i = 0; i < allRelatedUsers.length-1; i++) {
         userFros.push(filterUserId(allRelatedUsers[i],posts))
     }
     return R.flatten(userFros);
 };
+
+
