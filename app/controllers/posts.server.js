@@ -15,7 +15,6 @@ const eqByPostId = (id)=>  R.propEq('post_id', id);
 // filtering by user id function
 const filterUserId =(id,data) => R.filter(eqByUserId(id),data);
 
-
 /**
  * List of Posts
  */
