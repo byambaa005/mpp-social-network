@@ -37,7 +37,7 @@ exports._createPost = function (postContent,userId) {
         user_id: parseInt(userId)
     };
     posts = addToPost(newPost,posts);
-    return newPost;
+    return posts;
 };
 
 /**

@@ -75,20 +75,29 @@ exports.signup = function(req, res) {
             message: 'User with a same email address exists!'
         });
     }
-
-    let curDate = new Date();
-    const newUser = {
-        id: users.length + 1,
-        username: req.body.username,
-        passsord: req.body.password,
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        created_date: curDate.toJSON()
-    };
-
-    users = addToUsers(newUser ,users);
+    let u =exports._signup(req.body)
     res.status(200).send({
         message: 'User is successfully signed up.'
     });
+
+};
+
+/**
+ * Sign up new user
+ */
+exports._signup = function(userRaw) {
+
+    console.log(userRaw);
+    let curDate = new Date();
+    const newUser = {
+        id: users.length + 1,
+        username: userRaw.username,
+        passsord: userRaw.password,
+        firstname: userRaw.firstname,
+        lastname: userRaw.lastname,
+        created_date: curDate.toJSON()
+    };
+    users = addToUsers(newUser ,users);
+    return users;
 
 };
