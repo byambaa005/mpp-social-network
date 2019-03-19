@@ -13,6 +13,9 @@ const eqByUserEmail = (email)=> R.propEq('email', email);
 const findByUsername = (username,data)=> R.find(eqByUsername(username),data);
 // find by username
 const findByUserEmail = (email,data)=> R.find(eqByUserEmail(email),data);
+
+// adding post to posts function
+const addToUsers = (user ,users) =>R.append(user ,users);
 /**
  * Login user
  */
@@ -46,8 +49,7 @@ exports.auth = function(req, res) {
 };
 
 
-// adding post to posts function
-const addToUsers = (user ,users) =>R.append(user ,users);
+
 
 /**
  * Sign up new user

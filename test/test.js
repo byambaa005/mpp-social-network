@@ -8,10 +8,13 @@ it('create post', function() {
 });
 
 it('get posts', function() {
-    expect(posts._listPost(1)).has.members([{
+    expect(posts._listPost(1)).contain({
         "id": 1,
         "content": "In computer science, functional programming is a programming paradigm—a style of building the structure and elements of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data.",
         "created_date": "2019-03-14T18:25:43.511Z",
         "user_id": 1
-    }]);
+    });
+});
+it('get likes a post id', function() {
+    expect(interactoins.filterByPostId(1,{id:2, post_id:1})).is.eqls({id:2, post_id:1});
 });

@@ -20,6 +20,7 @@ const filterByPostId =(id,data) => R.filter(eqByPostId(id),data);
  * List of Post comments by post Id
  */
 exports.comments = function(req, res) {
-    const cs = filterByPostId(parseInt(req.post_id),comments );
-    res.send(cs);
+    res.send(filterByPostId(parseInt(req.post_id),comments ));
 };
+
+exports.filterByPostId = filterByPostId;
