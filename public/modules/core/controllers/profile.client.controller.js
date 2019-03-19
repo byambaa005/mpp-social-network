@@ -12,6 +12,7 @@ angular.module('core').controller('ProfileController', ['$scope', '$http', '$coo
             $http.get('/api/user/' + $stateParams.userId)
                 .then(function(response) {
                     post.user = response.data;
+                    $scope.thisUser = response.data;
                 })
                 .catch(function(data) {
                     console.log('Error: ' + data);

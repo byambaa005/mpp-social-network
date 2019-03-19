@@ -4,10 +4,10 @@
 
 <!--Left Sidebar with info Profile -->
 <div class="sidebar-nav">
-    <a href="#!/profile/{{curUser.id}}" title="Profile">
-        <img src="../../../images/avatars/{{curUser.img}}" alt="User name" class="rounded-circle img-user">
+    <a href="#!/profile/{{thisUser.id}}" title="Profile">
+        <img src="../../../images/avatars/{{thisUser.img}}" alt="User name" class="rounded-circle img-user">
     </a>
-    <h2 class="text-center hidden-xs profile-name"><a href="#!/profile/{{curUser.id}}" title="Profile">{{curUser.username}}</a></h2>
+    <h2 class="text-center hidden-xs profile-name"><a href="#!/profile/{{thisUser.id}}" title="Profile">{{thisUser.username}}</a></h2>
     <p class="text-center user-description hidden-xs">
         <i>Profile description!</i>
     </p>
@@ -24,8 +24,8 @@
                 <div class="card-post" style="margin-top:16px;">
                     <h2>About</h2>
                     <ul class="profile-data">
-                        <li><b>Username:</b> User</li>
-                        <li><b>Fullname:</b> Byambadorj Dulamsuren</li>
+                        <li><b>Username:</b> {{thisUser.username}}</li>
+                        <li><b>Fullname:</b> {{thisUser.firstname}} {{thisUser.lastname}}</li>
                         <li><b>Description:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
                     </ul>
                 </div>

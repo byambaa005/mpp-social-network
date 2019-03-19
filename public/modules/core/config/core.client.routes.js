@@ -19,7 +19,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
                 templateUrl: 'modules/core/views/profile.template.html'
             })
             .state('friends', {
-                url: '/friends',
+                url: '/friends/:searchString',
                 controller: 'FriendsController',
                 templateUrl: 'modules/core/views/friends.template.html'
             });

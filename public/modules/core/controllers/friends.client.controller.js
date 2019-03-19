@@ -1,8 +1,10 @@
 'use strict';
 
-angular.module('core').controller('FriendsController', ['$scope', '$http', '$cookies', '$window',
-    function($scope, $http, $cookies, $window) {
+angular.module('core').controller('FriendsController', ['$scope', '$http', '$cookies', '$window', '$stateParams',
+    function($scope, $http, $cookies, $window, $stateParams) {
         // This provides Authentication context.
+
+        let searchString = $stateParams.searchString;
 
         $scope.curUser = JSON.parse($window.localStorage.getItem('user')).currentUser;
         console.log($scope.curUser);
@@ -27,7 +29,19 @@ angular.module('core').controller('FriendsController', ['$scope', '$http', '$coo
                 .catch(function(data) {
                     console.log('Error: ' + data);
                 });
-        }
+        };
 
+        // get user profiles
+        if (searchString) {
+            $http.get('/api/search/' + searchString)
+                .then(function(response) {
+                    console.log(response.data);
+                    $scope.searchResults = response.data;
+                    // $scope.users = response.data || [];
+                })
+                .catch(function(data) {
+                    console.log('Error: ' + data);
+                });
+        }
     }
 ]);

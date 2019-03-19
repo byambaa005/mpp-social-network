@@ -56,7 +56,8 @@
 	<!--Header with Nav -->
 	<header class="text-right" ng-show="userLoggedIn()">
 		<form class="text-left search" method="GET">
-			<input name="q" type="text" placeholder="Search.." ng-model="searchInput" data-ng-click="searchUser(searchInput)">
+			<input name="q" type="text" placeholder="Search.." ng-model="searchInput"
+				   ng-keyup="$event.keyCode == 13 ? searchUser(searchInput) : null">
 		</form>
 		<div class="menu-icon">
 			<div class="dropdown">

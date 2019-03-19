@@ -34,6 +34,9 @@ module.exports = function (app) {
     app.route('/api/follow/:userId')
         .post(users.followUser);
 
+    app.route('/api/search/:searchText')
+        .get(users.searchUser);
+
     // -------------
     // Posts routes
     app.route('/api/posts/:userId')

@@ -12,6 +12,8 @@ angular.module('core').controller('CoreController', ['$scope', '$http', '$cookie
         $scope.searchInput = "";
         $scope.searchUser = function (searchString) {
             console.log(searchString);
+            $scope.searchInput = "";
+            window.location = "/#!/friends/"+searchString;
         };
 
         // This provides Authentication context.
