@@ -182,10 +182,21 @@ exports._nonFollowers = function(userId) {
     let allRelatedUsers = R.union(exports._listFollowing(userId),exports._listFollowers(userId));
     allRelatedUsers.push(parseInt(userId));
     let usersId =R.map((o) => o.id,users);
-    return R.without(allRelatedUsers, usersId);;
+    return R.without(allRelatedUsers, usersId);
 };
-
 /**
+ * Sign up new user
+ */
+exports._searchUser = function(searchText) {
+    let searchUserId = [];
+    for (let i = 0; i < users.length ; i++) {
+        if(R.contains(searchText,users[i].username) ||R.contains(searchText,users[i].firstname) || R.contains(searchText,users[i].lastname)){
+            searchUserId.push(users[i]);
+        }
+    }
+    return searchUserId;
+};
+/**,
  * Get user info by id
  */
 exports.getUserById = function (req, res) {
