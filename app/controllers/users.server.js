@@ -87,7 +87,6 @@ exports.auth = function(req, res) {
  * Sign up new user
  */
 exports.signup = function(req, res) {
-    console.log(req.body);
     if (!req.body) {
         return res.status(400).send({
             message: "User data incomplete!"
@@ -133,39 +132,33 @@ exports._signup = function(userRaw) {
  * Sign up new user
  */
 exports.listFriends = function(req, res) {
-    let relationfs =exports._listFollowing(parseInt(req.params.userId));
+    res.send(exports._listUsersById(exports._listFollowing(parseInt(req.params.userId))));
+};
+/**
+ * Sign up new user
+ */
+exports._listUsersById = (userIds) => {
     let userFros = [];
-    for (let i = 0; i < relationfs.length; i++) {
-        userFros.push(findByUserId(relationfs[i],users));
+    console.log(userIds[0])
+    for (let i = 0; i < userIds.length; i++) {
+        userFros.push(findByUserId(userIds[i],users));
     }
-    res.send(userFros)
+    console.log(userFros)
+    return userFros;
 
 };
-
 /**
  * Sign up new user
  */
 exports.listFollowers = function(req, res) {
-    let relationfs =exports._listFollowers(parseInt(req.params.userId));
-    let userFros = [];
-    for (let i = 0; i < relationfs.length; i++) {
-        userFros.push(findByUserId(relationfs[i],users));
-    }
-    res.send(userFros)
-
+    res.send(exports._listUsersById(exports._listFollowers(parseInt(req.params.userId))));
 };
 
 /**
  * Sign up new user
  */
 exports.nonFollowers = function(req, res) {
-    let relationfs =exports._nonFollowers(parseInt(req.params.userId));
-    let userFros = [];
-    for (let i = 0; i < relationfs.length; i++) {
-        userFros.push(findByUserId(relationfs[i],users));
-    }
-    res.send(userFros)
-
+    res.send(exports._listUsersById(exports._nonFollowers(parseInt(req.params.userId))));
 };
 /**
  * Sign up new user
