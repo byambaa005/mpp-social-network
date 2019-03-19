@@ -17,6 +17,7 @@
       "lastname": "Byambatogtokh",
       "password": "dGVzdA==",
       "gender": "male",
+      "img": "Puujee.jpg",
       "created_date": "2019-03-14T18:25:43.511Z"
     },
     {
@@ -26,6 +27,7 @@
       "lastname": "Bold",
       "password": "dGVzdA==",
       "gender": "male",
+      "img": "Anhaa.jpg",
       "created_date": "2019-03-14T18:25:43.511Z"
     },
     {
@@ -35,6 +37,7 @@
       "lastname": "Orosoo",
       "password": "dGVzdA==",
       "gender": "male",
+      "img": "Tulga.jpg",
       "created_date": "2019-03-14T18:25:43.511Z"
     },
     {
@@ -44,6 +47,7 @@
       "lastname": "Enkh",
       "password": "dGVzdA==",
       "gender": "male",
+      "img": "Duuk.jpg",
       "created_date": "2019-03-14T18:25:43.511Z"
     },
     {
@@ -53,6 +57,7 @@
       "lastname": "Narantuya",
       "password": "dGVzdA==",
       "gender": "male",
+      "img": "Batja.jpg",
       "created_date": "2019-03-14T18:25:43.511Z"
     },
     {
@@ -61,7 +66,7 @@
       "firstname": "Turbat",
       "lastname": "Turbat",
       "password": "dGVzdA==",
-      "gender": "male",
+      "gender": "Turuu",
       "created_date": "2019-03-14T18:25:43.511Z"
     },
     {
@@ -71,6 +76,7 @@
       "lastname": "Bud",
       "password": "dGVzdA==",
       "gender": "male",
+      "img": "Ragcha.jpg",
       "created_date": "2019-03-14T18:25:43.511Z"
     },
     {
@@ -80,6 +86,7 @@
       "lastname": "Batjargal",
       "password": "dGVzdA==",
       "gender": "male",
+      "img": "Mars.jpg",
       "created_date": "2019-03-14T18:25:43.511Z"
     },
     {
@@ -89,6 +96,7 @@
       "lastname": "Bold",
       "password": "dGVzdA==",
       "gender": "male",
+      "img": "Bata.jpg",
       "created_date": "2019-03-14T18:25:43.511Z"
     },
     {
@@ -98,6 +106,7 @@
       "lastname": "Bold",
       "password": "dGVzdA==",
       "gender": "female",
+      "img": "Haliun.jpg",
       "created_date": "2019-03-14T18:25:43.511Z"
     }
   ],
