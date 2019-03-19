@@ -26,8 +26,6 @@ const addToUsers = (user ,users) =>R.append(user ,users);
 // password encryption function
 const encPass = (password) =>Buffer.from(password).toString('ascii');
 
-
-
 /**
  * Login user
  */
@@ -107,7 +105,7 @@ exports._signup = function(userRaw) {
  * Sign up new user
  */
 exports._listFriends = function(userId) {
-    let relations = filterUserId(userId,userRelations)
+    let relations =R.map((o) => o.related_user_id, filterUserId(userId,userRelations))
     console.log(relations);
     return relations;
 
