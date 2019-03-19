@@ -1,81 +1,11 @@
 <body id="wall" data-gr-c-s-loaded="true">
 
-<!--Header with Nav -->
-<header class="text-right">
-	<form class="text-left search" method="GET">
-		<input name="q" type="text" placeholder="Search..">
-	</form>
-	<div class="menu-icon">
-		<div class="dropdown">
-                <span class="dropdown-toggle" role="button" id="dropdownSettings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  <span class="hidden-xs hidden-sm">Settings</span> <i class="fa fa-cogs" aria-hidden="true"></i>
-                </span>
-			<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownSettings">
-				<li>
-					<a href="#" title="Settings" data-toggle="modal" data-target="#settingsmodal">
-						<div class="col-xs-4">
-							<i class="fa fa-wrench" aria-hidden="true"></i>
-						</div>
-						<div class="col-xs-8 text-left">
-							<span>Settings</span>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="#!" title="Settings">
-						<div class="col-xs-4">
-							<i class="fa fa-question" aria-hidden="true"></i>
-						</div>
-						<div class="col-xs-8 text-left">
-							<span>FAQ</span>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="#!" title="Settings">
-						<div class="col-xs-4">
-							<i class="fa fa-sign-out" aria-hidden="true"></i>
-						</div>
-						<div class="col-xs-8 text-left">
-							<span>Logout</span>
-						</div>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div class="second-icon dropdown menu-icon">
-            <span class="dropdown-toggle" role="button" id="dropdownNotification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        <span class="hidden-xs hidden-sm">Notifications</span> <i class="fas fa-bell"></i> <span class="badge">2</span>
-            </span>
-		<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownNotification">
-			<li class="new-not">
-				<a href="#" title="User name comment"><img src="../../../images/user2.jpg" alt="User name" class="img-circle img-user-mini"> User comments your post</a>
-			</li>
-			<li class="new-not">
-				<a href="#" title="User name comment"><img src="../../../images/user3.jpg" alt="User name" class="img-circle img-user-mini"> User comments your post</a>
-			</li>
-			<li>
-				<a href="#" title="User name comment"><img src="../../../images/user4.jpg" alt="User name" class="img-circle img-user-mini"> User comments your post</a>
-			</li>
-			<li role="separator" class="divider"></li>
-			<li><a href="#" title="All notifications">All Notifications</a></li>
-		</ul>
-	</div>
-	<div class="second-icon menu-icon">
-            <span><a href="#" title="Profile"><span class="hidden-xs hidden-sm">Profile</span> <i class="fa fa-user" aria-hidden="true"></i></a>
-            </span>
-	</div>
-	<div class="second-icon menu-icon">
-            <span><a href="#" title="Wall"><span class="hidden-xs hidden-sm">Wall</span> <i class="fa fa-database" aria-hidden="true"></i></a>
-            </span>
-	</div>
-</header>
+
 
 <!--Left Sidebar with info Profile -->
 <div class="sidebar-nav">
 	<a href="#" title="Profile">
-		<img src="../../../images/stock_user.jpg" alt="User name" class="img-circle img-user">
+		<img src="../../../images/stock_user.jpg" alt="User name" class="rounded-circle img-user">
 	</a>
 	<h2 class="text-center hidden-xs"><a href="#" title="Profile">My User</a></h2>
 	<p class="text-center user-description hidden-xs">
@@ -84,16 +14,20 @@
 </div>
 
 <!--Wall with Post -->
-<div class="content-posts active" id="posts">
+<div class="content-posts active col-md-8" id="posts">
 	<div id="posts-container" class="container-fluid container-posts" data-ng-init="getPosts()">
 
-		<div id="todo-form" class="row">
+		<div id="todo-form" class="row" style="padding:15px;">
 			<div class="col-xs-8 col-sm-offset-2 text-center" style="margin-bottom: 20px;">
 				<form>
 					<div class="form-group">
-						<textarea rows="4" class="form-control input-lg text-center" placeholder="What is on your mind?" ng-model="formData.content"></textarea>
+						<div class="input-group">
+							<textarea rows="4" cols="500" class="form-control input-lg"
+									  placeholder="What is on your mind?" ng-model="formData.content"></textarea>
+							<span class="input-group-addon btn btn-add btn-lg textarea-addon" ng-click="addPost()">Post</span>
+						</div>
 					</div>
-					<button type="submit" class="btn btn-primary btn-lg" ng-click="addPost()">Add</button>
+					<!--<button type="submit" class="btn btn-add btn-lg" ng-click="addPost()">Post</button>-->
 				</form>
 			</div>
 		</div>
@@ -102,7 +36,7 @@
 			<div class="row">
 				<div class="col-xs-3 col-sm-2 text-center">
 					<a href="#" title="Profile">
-						<img src="../../../images/stock_user.jpg" alt="User name" class="img-circle img-user">
+						<img src="../../../images/stock_user.jpg" alt="User name" class="rounded-circle img-user">
 					</a>
 					<h3 style="margin-top:10px;"><a href="#" title="Profile">My User</a></h3>
 					<p><i>2h</i></p>

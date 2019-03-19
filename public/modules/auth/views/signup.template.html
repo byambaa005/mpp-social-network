@@ -1,0 +1,41 @@
+<div ng-show="error" class="alert alert-danger">{{error}}</div>
+
+<div class="center">
+    <div class="form-box" style="height:500px">
+        <div class="form-logo">
+            <h1 style="text-align: center" >Sign up</h1>
+        </div>
+        <form>
+            <input type="text" class="form-control" placeholder="Username">
+            <input type="email" class="form-control" placeholder="Email">
+
+            <input type="text" class="form-control" placeholder="First name">
+            <input type="text" class="form-control" placeholder="Last name">
+            <input type="password" class="form-control" placeholder="Password">
+
+            <div style="margin-top:10px;">
+                <div class="form-check-inline">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="female" name="gender">
+                        <label class="custom-control-label" for="female">Female</label>
+                    </div>
+                </div>
+                <div class="form-check-inline">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="male" name="gender">
+                        <label class="custom-control-label" for="male">Male</label>
+                    </div>
+                </div>
+            </div>
+
+            <input style="margin-top:10px;" type="submit" class="btn btn-social" value="SIGN UP">
+        </form>
+        <a href="/#!/login" class="login-action" title="login">
+            <p>Have an account?</p>
+        </a>
+    </div><!--close form-box-->
+</div>
+
+
+
+

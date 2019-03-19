@@ -13,7 +13,8 @@
 	<title>MPP Functional Programming Project</title>
 
 	<!-- SCROLLS -->
-	<link rel="stylesheet" href="library/bootstrap/dist/css/bootstrap.css" />
+	<!--<link rel="stylesheet" href="library/bootstrap/dist/css/bootstrap.css" />-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="modules/core/css/font-awesome.min.css">
 	<link rel="stylesheet" href="modules/core/css/style.css">
 	<link rel="stylesheet" href="modules/core/css/main.css">
@@ -38,6 +39,7 @@
 	<!--CORE MODULE-->
 	<script src="modules/core/core.module.js"></script>
 	<script src="modules/core/config/core.client.routes.js"></script>
+	<script src="modules/core/controllers/core.client.controller.js"></script>
 	<script src="modules/core/controllers/home.client.controller.js"></script>
 	<!--AUTH MODULE-->
 	<script src="modules/auth/auth.module.js"></script>
@@ -47,7 +49,36 @@
 </head>
 <body style="padding-top:0">
 
-<div class="view-container">
+<div class="view-container" ng-controller="CoreController">
+
+	<!--Header with Nav -->
+	<header class="text-right" ng-show="userLoggedIn()">
+		<form class="text-left search" method="GET">
+			<input name="q" type="text" placeholder="Search..">
+		</form>
+		<div class="menu-icon">
+			<div class="dropdown">
+                <span style="cursor: pointer" confirmed-click="signOut()" ng-confirm-click="Are you sure you want to sign out?"
+					  role="button" id="dropdownSettings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <span class="hidden-xs hidden-sm">Logout</span> <i class="fas fa-sign-out-alt"></i>
+                </span>
+			</div>
+		</div>
+		<div style="cursor: pointer" class="second-icon dropdown menu-icon">
+            <span role="button" id="dropdownNotification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <span class="hidden-xs hidden-sm">Friends</span> <i class="fas fa-user-friends"></i>
+            </span>
+		</div>
+		<div class="second-icon menu-icon">
+            <span><a href="#" title="Profile"><span class="hidden-xs hidden-sm">Profile</span> <i class="fa fa-user" aria-hidden="true"></i></a>
+            </span>
+		</div>
+		<div class="second-icon menu-icon">
+            <span><a href="#" title="Wall"><span class="hidden-xs hidden-sm">Wall</span> <i class="fa fa-database" aria-hidden="true"></i></a>
+            </span>
+		</div>
+	</header>
+
 	<div data-ui-view></div>
 </div>
 
