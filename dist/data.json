@@ -229,13 +229,13 @@
       "id": 8,
       "content": "Programming in a functional style can also be accomplished in languages that are not specifically designed for functional programming.",
       "created_date": "2019-03-16T18:55:43.511Z",
-      "user_id": 3
+      "user_id": 2
     },
     {
       "id": 9,
       "content": "The 1973 language ML was created by Robin Milner at the University of Edinburgh, and David Turner developed the language SASL at the University of St Andrews.",
       "created_date": "2019-03-16T18:55:43.511Z",
-      "user_id": 3
+      "user_id": 2
     },
     {
       "id": 10,
