@@ -33,6 +33,8 @@ angular.module('auth')
                     $http.post('/api/signup', $scope.userSignUpData)
                         .then(function (response) {
                             console.log(response);
+                            alert('Successfully signed up!');
+                            window.location = "/#!/login";
                         })
                         .catch(function(error) {
                             alert(error.message);

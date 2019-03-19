@@ -27,6 +27,9 @@ module.exports = function (app) {
     app.route('/api/nonFollowers/:userId')
         .get(users.nonFollowers);
 
+    app.route('/api/followers/:userId')
+        .get(users.listFollowers);
+
     app.route('/api/user/:userId')
         .get(users.getUserById);
 

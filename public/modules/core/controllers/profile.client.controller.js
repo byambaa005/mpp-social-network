@@ -129,6 +129,16 @@ angular.module('core').controller('ProfileController', ['$scope', '$http', '$coo
                 .catch(function(data) {
                     console.log('Error: ' + data);
                 });
+        };
+
+        $scope.getFollowerProfiles = function () {
+            $http.get('/api/followers/'+$scope.curUser.id)
+                .then(function(response) {
+                    $scope.followers = response.data || [];
+                })
+                .catch(function(data) {
+                    console.log('Error: ' + data);
+                });
         }
 
     }
