@@ -1,7 +1,6 @@
 const R = require('ramda');
 const fs = require('fs');
 
-
 let rawData = fs.readFileSync('./dist/data.json');
 let dummyData = JSON.parse(rawData);
 let posts = dummyData['posts'];
@@ -11,9 +10,11 @@ const addToPost = (post,posts) =>R.append(post,posts);
 
 // equlas to user_id
 const eqByUserId = (id)=>  R.propEq('user_id', id);
-
+// func post
+const eqByPostId = (id)=>  R.propEq('post_id', id);
 // filtering by user id function
 const filterUserId =(id,data) => R.filter(eqByUserId(id),data);
+
 
 /**
  * List of Posts
