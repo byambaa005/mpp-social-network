@@ -28,7 +28,8 @@ angular.module('auth')
                            callback(response);
                        })
                         .catch(function(error) {
-                            alert(error.message);
+                            console.log(error.data);
+                            alert(error.data.message);
                         });
 
                 };

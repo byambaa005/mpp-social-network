@@ -18,7 +18,7 @@ angular.module('auth')
                             AuthenticationService.SetCredentials(userData.id ,$scope.username, $scope.password);
                             $location.path('/');
                         } else {
-                            $scope.error = response.message;
+                            $scope.error = response.data.message;
                             $scope.dataLoading = false;
                         }
                     });
@@ -28,8 +28,6 @@ angular.module('auth')
 
                 $scope.userSignUp = function () {
 
-                    console.log($scope.userSignUpData);
-
                     $http.post('/api/signup', $scope.userSignUpData)
                         .then(function (response) {
                             console.log(response);
@@ -37,7 +35,7 @@ angular.module('auth')
                             window.location = "/#!/login";
                         })
                         .catch(function(error) {
-                            alert(error.message);
+                            alert(error.data.message);
                         });
 
                     // let userData = response.data;

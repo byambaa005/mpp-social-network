@@ -3,9 +3,10 @@ const fs = require('fs');
 
 let rawData = fs.readFileSync('./dist/data.json');
 let dummyData = JSON.parse(rawData);
-let users = dummyData['users'];
+const dummyUsers = dummyData['users'];
 let userRelations = dummyData['user_relations'];
 
+let users = dummyUsers;
 
 // equals username function
 const eqByUsername = (username)=> R.propEq('username', username);
@@ -86,6 +87,7 @@ exports.auth = function(req, res) {
  * Sign up new user
  */
 exports.signup = function(req, res) {
+    console.log(req.body);
     if (!req.body) {
         return res.status(400).send({
             message: "User data incomplete!"
@@ -118,6 +120,7 @@ exports._signup = function(userRaw) {
         passsord: userRaw.password,
         firstname: userRaw.firstname,
         lastname: userRaw.lastname,
+        gender: userRaw.gender,
         created_date: curDate.toJSON()
     };
     users = addToUsers(newUser ,users);
@@ -132,7 +135,7 @@ exports._signup = function(userRaw) {
 exports.listFriends = function(req, res) {
     let relationfs =exports._listFollowing(parseInt(req.params.userId));
     let userFros = [];
-    for (let i = 0; i < relationfs.length-1; i++) {
+    for (let i = 0; i < relationfs.length; i++) {
         userFros.push(findByUserId(relationfs[i],users));
     }
     res.send(userFros)
@@ -145,7 +148,7 @@ exports.listFriends = function(req, res) {
 exports.listFollowers = function(req, res) {
     let relationfs =exports._listFollowers(parseInt(req.params.userId));
     let userFros = [];
-    for (let i = 0; i < relationfs.length-1; i++) {
+    for (let i = 0; i < relationfs.length; i++) {
         userFros.push(findByUserId(relationfs[i],users));
     }
     res.send(userFros)
@@ -158,7 +161,7 @@ exports.listFollowers = function(req, res) {
 exports.nonFollowers = function(req, res) {
     let relationfs =exports._nonFollowers(parseInt(req.params.userId));
     let userFros = [];
-    for (let i = 0; i < relationfs.length-1; i++) {
+    for (let i = 0; i < relationfs.length; i++) {
         userFros.push(findByUserId(relationfs[i],users));
     }
     res.send(userFros)
@@ -186,7 +189,7 @@ exports._listFollowers = function(userId) {
  */
 exports._nonFollowers = function(userId) {
     let allRelatedUsers = R.union(exports._listFollowing(userId),exports._listFollowers(userId));
-    allRelatedUsers.push(parseInt(userId))
+    allRelatedUsers.push(parseInt(userId));
     let usersId =R.map((o) => o.id,users);
     return R.without(allRelatedUsers, usersId);;
 };
