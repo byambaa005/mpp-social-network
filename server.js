@@ -18,10 +18,11 @@ app.use(bodyParser.urlencoded({'extended':'true'})); 			// parse application/x-w
 app.use(bodyParser.json()); 									// parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 app.use(methodOverride());
-
 // routes ======================================================================
 require('./app/index.js')(app);
 
 // listen (start app with node server.js) ======================================
 app.listen(port);
 console.log("App listening on port " + port);
+
+module.exports = app;

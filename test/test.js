@@ -1,23 +1,17 @@
-function ok(expr, msg) {
-    if (!expr) throw new Error(msg);
-}
-
-suite('Array');
-
-test('#length', function() {
-    var arr = [1, 2, 3];
-    ok(arr.length == 3);
+let posts = require('../app/controllers/posts.server.js');
+let users = require('../app/controllers/users.server.js');
+let interactoins = require('../app/controllers/interactions.server.js');
+let chai = require('chai');
+let expect = chai.expect;
+it('create post', function() {
+    expect(posts._createPost("test",1)).to.own.include({content: "test"});
 });
 
-test('#indexOf()', function() {
-    var arr = [1, 2, 3];
-    ok(arr.indexOf(1) == 0);
-    ok(arr.indexOf(2) == 1);
-    ok(arr.indexOf(3) == 2);
-});
-
-suite('String');
-
-test('#length', function() {
-    ok('foo'.length == 3);
+it('get posts', function() {
+    expect(posts._listPost(1)).has.members([{
+        "id": 1,
+        "content": "In computer science, functional programming is a programming paradigm—a style of building the structure and elements of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data.",
+        "created_date": "2019-03-14T18:25:43.511Z",
+        "user_id": 1
+    }]);
 });

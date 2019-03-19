@@ -18,9 +18,26 @@ const filterUserId =(id,data) => R.filter(eqByUserId(id),data);
 /**
  * List of Posts
  */
+exports._listPost = function(userId) {
+    return filterUserId(userId,posts);
+};
+/**
+ * List of Posts
+ */
 exports.list = function(req, res) {
-    const qs = filterUserId(parseInt(req.params.userId) ,posts);
-    res.send(qs);
+    res.send(exports._listPost(parseInt(req.params.userId)));
+};
+
+exports._createPost = function (postContent,userId) {
+    let curDate = new Date();
+    const newPost ={
+        id: posts.length + 1,
+        content:postContent,
+        created_date: curDate.toJSON(),
+        user_id: parseInt(userId)
+    };
+    posts = addToPost(newPost,posts);
+    return newPost;
 };
 
 /**
@@ -28,22 +45,11 @@ exports.list = function(req, res) {
  */
 exports.create = function (req, res) {
 
-    console.log(req.body);
-
     if (!req.body) {
         return res.status(400).send({
             message: 'Post cannot be empty!'
         });
     }
-    let curDate = new Date();
-    const newPost ={
-        id: posts.length + 1,
-        content: req.body.content,
-        created_date: curDate.toJSON(),
-        user_id: req.body.userId
-    };
-
-    console.log(newPost);
-    posts = addToPost(newPost,posts);
+    exports._createPost (req.body,3)
     res.status(200).send();
 };

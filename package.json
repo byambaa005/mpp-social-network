@@ -29,6 +29,10 @@
     "copy-libs": "cpx \"node_modules/{angular,angular-*,@uirouter,bootstrap/dist,jquery/dist}/**/*\" public/library -C"
   },
   "devDependencies": {
-    "nyc": "^13.3.0"
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "nyc": "^13.3.0",
+    "should": "^13.2.3",
+    "superagent": "^4.1.0"
   }
 }
