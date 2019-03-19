@@ -25,8 +25,6 @@ const filterByUserId =(id,data) => R.filter(eqByUserId(id),data);
 
 const filterByPostId =(id,data) => R.filter(eqByPostId(id),data);
 
-const filterByPostId =(id,data) => R.filter(eqByPostId(id),data);
-
 const likeByPostId =(id,data) => R.filter(eqByReactionTypeLike,filterByPostId(parseInt(id) ,data )).length;
 
 const dislikeByPostId =(id,data) => R.filter(eqByReactionTypeDislike(),filterByPostId(parseInt(id) ,data )).length;
