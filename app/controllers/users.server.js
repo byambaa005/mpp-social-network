@@ -130,7 +130,7 @@ exports._signup = function(userRaw) {
  * Sign up new user
  */
 exports.listFriends = function(req, res) {
-    let relationfs =exports._listFollowing(parseInt(req.param.userId));
+    let relationfs =exports._listFollowing(parseInt(req.params.userId));
     let userFros = [];
     for (let i = 0; i < relationfs.length-1; i++) {
         userFros.push(findByUserId(relationfs[i],users));
@@ -143,7 +143,7 @@ exports.listFriends = function(req, res) {
  * Sign up new user
  */
 exports.listFollowers = function(req, res) {
-    let relationfs =exports._listFollowers(parseInt(req.param.userId));
+    let relationfs =exports._listFollowers(parseInt(req.params.userId));
     let userFros = [];
     for (let i = 0; i < relationfs.length-1; i++) {
         userFros.push(findByUserId(relationfs[i],users));
@@ -156,7 +156,8 @@ exports.listFollowers = function(req, res) {
  * Sign up new user
  */
 exports.nonFollowers = function(req, res) {
-    let relationfs =exports.nonFollowers(parseInt(req.param.userId));
+    console.log(req.params);
+    let relationfs =exports._nonFollowers(parseInt(req.params.userId));
     let userFros = [];
     for (let i = 0; i < relationfs.length-1; i++) {
         userFros.push(findByUserId(relationfs[i],users));

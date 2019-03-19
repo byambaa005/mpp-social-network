@@ -19,8 +19,17 @@ module.exports = function (app) {
     app.route('/api/interactions/:postId')
         .get(interactions.comments);
 
-    app.route('/api/createComment')
-        .post(interactions.createComment);
+    app.route('/api/likePost')
+        .post(interactions.createReaction);
+
+    app.route('/api/dislikePost')
+        .post(interactions.createReaction);
+
+    app.route('/api/likeCount/:postId')
+        .get(interactions.likeCount);
+
+    app.route('/api/dislikeCount/:postId')
+        .get(interactions.dislikeCount);
 
     app.route('/api/posts')
         .post(posts.create);
@@ -31,8 +40,10 @@ module.exports = function (app) {
     app.route('/api/signup')
         .post(users.signup);
 
-    app.route('/api/users')
-        .get(users.list);
+    app.route('/api/friendsList/:userId')
+        .get(users.listFriends);
 
+    app.route('/api/nonFollowers/:userId')
+        .get(users.nonFollowers);
 };
 

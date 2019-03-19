@@ -19,45 +19,22 @@
 
         <div class="row">
             <!--middle container-->
-            <div class="col-md-8">
+            <div class="col-md-6">
 
                 <div class="card-post" style="margin-top:16px;">
-                    <h2>User data</h2>
-                    <ul class="profile-data">
-                        <li><b>Username:</b> User</li>
-                        <li><b>Fullname:</b> Byambadorj Dulamsuren</li>
-                        <li><b>Description:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-                    </ul>
-                </div>
-
-                <div class="card-post" ng-repeat="post in posts | orderBy: '-created_date'">
-                    <div class="row">
-                        <div class="col-xs-3 col-sm-2 text-center">
-                            <a href="#" title="Profile">
-                                <img src="../../../images/avatars/male.png" alt="User name"
-                                     class="rounded-circle img-user">
-                            </a>
-                            <h3 style="margin-top:10px;"><a href="#" title="Profile">{{curUser.username}}</a></h3>
-                            <p><i>2h</i></p>
-                        </div>
-                        <div class="col-sm-8 col-sm-offset-1 data-post" data-ng-init="getPostInteractions(post.id)">
-                            <p>{{post.content}}</p>
-                            <div class="reaction">
-                                <span class="like-icon"><i class="fas fa-thumbs-up"></i></span> {{likesCount}} <span
-                                    class="dislike-icon"><i class="fas fa-thumbs-down"></i></span> {{dislikesCount}}
+                    <h2>Friends list</h2>
+                    <div class="profile-block" data-ng-repeat="user in users">
+                        <div class="row">
+                            <div class="col-md-4 text-center">
+                                <a href="#" title="Profile">
+                                    <img data-ng-if="user.gender === 'male'" src="../../../images/avatars/male.png" alt="User name"
+                                         class="rounded-circle img-user">
+                                    <img data-ng-if="user.gender === 'female'" src="../../../images/avatars/female.png" alt="User name"
+                                         class="rounded-circle img-user">
+                                </a>
                             </div>
-                            <div class="comments">
-                                <div class="more-comments">View more comments</div>
-                                <ul>
-                                    <li data-ng-repeat="comment in comments">
-                                        <b>{{curUser.username}}:</b> {{comment.comment}}
-                                    </li>
-                                </ul>
-                                <form>
-                                    <input type="text" class="form-control" placeholder="Add a comment"
-                                           ng-model="curComment"
-                                           ng-keyup="$event.keyCode == 13 ? addComment(post.id, curUser.id, curComment) : null">
-                                </form>
+                            <div class="col-md-8">
+                                <h3 style="margin-top:10px;font-size:12px;margin-bottom:10px;"><a href="#" title="Profile">{{user.firstname}} {{user.lastname}}</a></h3>
                             </div>
                         </div>
                     </div>
@@ -65,9 +42,10 @@
             </div>
 
             <!--right sidebar-->
-            <div class="col-md-4" data-ng-init="getUserProfiles()">
-                <div class="profiles">
-                    <h2>Friends list</h2>
+            <div class="col-md-6" data-ng-init="getUserProfiles()">
+
+                <div class="card-post" style="margin-top:16px;">
+                    <h2>Following list</h2>
                     <div class="profile-block" data-ng-repeat="user in users">
                         <div class="row">
                             <div class="col-md-4 text-center">

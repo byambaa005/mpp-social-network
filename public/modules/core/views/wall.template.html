@@ -46,11 +46,11 @@
                             <h3 style="margin-top:10px;"><a href="#" title="Profile">{{curUser.username}}</a></h3>
                             <p><i>2h</i></p>
                         </div>
-                        <div class="col-sm-8 col-sm-offset-1 data-post" data-ng-init="getPostInteractions(post.id)">
+                        <div class="col-sm-8 col-sm-offset-1 data-post" data-ng-init="getPostReactionStats(post.id)">
                             <p>{{post.content}}</p>
                             <div class="reaction">
-                                <span class="like-icon"><i class="fas fa-thumbs-up"></i></span> {{likesCount}} <span
-                                    class="dislike-icon"><i class="fas fa-thumbs-down"></i></span> {{dislikesCount}}
+                                <span style="cursor: pointer" class="like-icon" data-ng-click="likePost(post.id)"><i class="fas fa-thumbs-up"></i></span> {{likesCount}}
+                                <span style="cursor: pointer" class="dislike-icon" data-ng-click="dislikePost(post.id)"><i class="fas fa-thumbs-down"></i></span> {{dislikesCount}}
                             </div>
                             <div class="comments">
                                 <div class="more-comments">View more comments</div>
@@ -71,7 +71,7 @@
             </div>
 
             <!--right sidebar-->
-            <div class="col-md-4" data-ng-init="getUserProfiles()">
+            <div class="col-lg-4 col-md-6 col-sm-8" data-ng-init="getUserProfiles()">
                 <div class="profiles">
                     <div class="profile-block" data-ng-repeat="user in users">
                         <div class="row">

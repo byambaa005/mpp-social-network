@@ -4,7 +4,7 @@ const fs = require('fs');
 let rawData = fs.readFileSync('./dist/data.json');
 let dummyData = JSON.parse(rawData);
 let comments = dummyData['post_comments'];
-let reactions = dummyData['post_reaction'];
+let reactions = dummyData['post_reactions'];
 // func user_id
 const eqByUserId = (id)=>  R.propEq('user_id', id);
 
@@ -44,13 +44,13 @@ exports.comments = function(req, res) {
  * List of Post comments by post Id
  */
 exports.likeCount = function(req, res) {
-    res.send(likeByPostId(parseInt(req.params.postId) ,comments ));
+    return res.status(200).send({count: likeByPostId(parseInt(req.params.postId) ,comments )});
 };
 /**
  * List of Post comments by post Id
  */
 exports.dislikeCount = function(req, res) {
-    res.send(dislikeByPostId(parseInt(req.params.postId) ,comments ));
+    res.status(200).send({count: dislikeByPostId(parseInt(req.params.postId) ,comments )});
 };
 
 exports._createReaction = function (userId,postId, type) {
@@ -62,7 +62,9 @@ exports._createReaction = function (userId,postId, type) {
         user_id: parseInt(userId),
         post_id: postId
     };
+    console.log(newReaction);
     reactions = addToComment(newReaction,reactions);
+    console.log(reactions);
     return reactions;
 };
 
@@ -95,7 +97,7 @@ exports.createComment = function(req, res) {
 
 
 /**
- * Add comment
+ * Add reaction
  */
 exports.createReaction = function(req, res) {
 
@@ -107,5 +109,6 @@ exports.createReaction = function(req, res) {
         });
     }
     // exports._createComment (req.body.content ,req.body.userId, req.body.postId);
+    exports._createReaction (req.body.userId, req.body.postId ,req.body.type);
     res.status(200).send();
 };

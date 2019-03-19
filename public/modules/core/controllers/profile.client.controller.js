@@ -18,9 +18,9 @@ angular.module('core').controller('ProfileController', ['$scope', '$http', '$coo
                 });
         };
 
-        // get user profiles
+        // get friends profiles
         $scope.getUserProfiles = function () {
-            $http.get('/api/users')
+            $http.get('/api/friendsList/' + $scope.curUser.id)
                 .then(function(response) {
                     $scope.users = response.data || [];
                 })
