@@ -7,7 +7,7 @@ angular.module('core').controller('CoreController', ['$scope', '$http', '$cookie
             return (($window.localStorage.getItem('user') !== null) && $location.path() !== '/login' && $location.path() !== '/signup');
         };
 
-        $scope.curUser = JSON.parse($window.localStorage.getItem('user')).currentUser;
+        // $scope.curUser = JSON.parse($window.localStorage.getItem('user')).currentUser;
 
         $scope.searchInput = "";
         $scope.searchUser = function (searchString) {
